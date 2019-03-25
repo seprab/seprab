@@ -51,9 +51,9 @@ div.left{
     left:0
 }
 div.right{
-    position:fixed;
+    position:absolute;
     width:35%;
-    height:100vh;
+    height:auto;
     top:0;
     right:0
 }
