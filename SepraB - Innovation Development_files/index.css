@@ -51,31 +51,19 @@ div.left{
     left:0
 }
 div.right{
-    position:absolute;
-    width:35.1%;
-    height:auto;
-    top:16%;
-    padding-left:2vw;
+    position:fixed;
+    width:35%;
+    height:100vh;
     top:0;
     right:0
 }
 div.customHeader{
-    position:fixed;
     min-height:5%;
     max-height:40%;
     font-size:1vw;
     overflow:hidden;
     background:#ff7373;
-    z-index:5
-}
-div.fakePanel{
-    min-height:5%;
-    max-height:40%;
-    font-size:1vw;
-    text-align:justify;
-    line-height:20px;
-    margin:5% 5% 5% 5%;
-    visibility:hidden
+    z-index:5;
 }
 div.infoPanel{
     width:calc(100% - 2vw - 2vw);
@@ -114,7 +102,7 @@ h3{
     font-size:12px;
     color:#848484;
     text-transform:uppercase;
-    margin:50px 0 20px
+    margin:1vh 0 3vh
 }
 h3::selection{
     background:#0062ff
@@ -186,6 +174,13 @@ div.firma{
     top:50%;
     left:50%;
     transform:translate(-50%,-50%)
+}
+.endSection{
+    width:10%;
+    background-color:#ff7373;
+    height:.1vh;
+    margin-top:1vh;
+    margin-bottom:3.5vh
 }
 .endLine{
     width:inherit;
