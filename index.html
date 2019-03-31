@@ -29,25 +29,27 @@
 
   <link href="./SepraB - Innovation Development_files/index.css" rel="stylesheet">
   <link rel="stylesheet">
-
+<script type="text/javascript" src="./SepraB - Innovation Development_files/index.js"></script>
 </head>
-<body>
+<body onload="init()">
     <div class="main">
         <div class="left">
           <div class="vimeo-wrapper">
             <iframe src="https://player.vimeo.com/video/326183050?autoplay=1&muted=1&loop=1" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
           </div>
           <div class="idioma">
-            <button type="button" id="espanol" onclick="espanol()">ES</button>
-            <button type="button" id="ingles" onclick="ingles()">EN</button>
+              <a class="botonLenguaje" onclick="espanol()">ES</a>
+              <a class="botonLenguaje" onclick="ingles()">EN</a>
           </div>
           <div class="firma">
             <h2>SepraB</h2>
-            <h2>Innovación e Interacción</h2>
+            <h2 id="es_Firma">Innovación e Interacción</h2>
+            <h2 id="en_Firma">Innovation and Interaction</h2>
           </div>
-          <h6 class="desktop-visible">SepraB. Todos los derechos reservados. 2019.</h6>
+          <h6 class="desktop-visible" id="es_Derechos">SepraB. Todos los derechos reservados. 2019.</h6>
+          <h6 class="desktop-visible" id="en_Derechos">SepraB. All rights reserved. 2019.</h6>
         </div>
-        <div class="right" id="es">
+        <div class="right" id="es_Content">
           <div class="customHeader">
               <p>
                 Trabajo en conjunto con ideales de innovación, tanto en propuestas de emprendimiento y de incubación como en desarrollos de muy alta expectativa y financiación.
@@ -110,7 +112,7 @@
             </div>
           </div>
         </div>
-        <div class="right" id="en">
+        <div class="right" id="en_Content">
           <div class="customHeader">
               <p>
                 I work based on innovation. Delivering always the best for entrepreneurship projects as well as the development of very high financing projects.
@@ -173,10 +175,10 @@
             </div>
           </div>
         </div>
-    <footer style="display:none">
-      <span id="siteseal"><script async type="text/javascript" src="https://seal.godaddy.com/getSeal?sealID=02ZvPA1MwIau5a0PI0c2YSw9SNiwaJAeTo2wHW79DRqFb1QLIYvdxMFIiYKC"></script></span>
+    <footer style="visibility: hidden">
+      <span id="siteseal" ><script async type="text/javascript" src="https://seal.godaddy.com/getSeal?sealID=02ZvPA1MwIau5a0PI0c2YSw9SNiwaJAeTo2wHW79DRqFb1QLIYvdxMFIiYKC"></script></span>
     </footer>
-<script type="text/javascript" src="./SepraB - Innovation Development_files/index.js"></script>
+
   </body>
 </html>
 <!-- saved from url=(0022)https://mister.studio/ -->
