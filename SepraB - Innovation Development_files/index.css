@@ -1,4 +1,4 @@
-a,article,body,div,footer,h1,h2,h3,h4,h5,h6,html,li,p,s,section,summary,ul{
+a,body,div,footer,h1,h2,h3,h4,h5,h6,html,li,p,s,section,summary,ul{
     margin:0;
     padding:0;
     border:0;
@@ -6,7 +6,7 @@ a,article,body,div,footer,h1,h2,h3,h4,h5,h6,html,li,p,s,section,summary,ul{
     vertical-align:baseline;
     text-decoration:none
 }
-article,footer,section{
+footer,section{
     display:block
 }
 ul{
@@ -37,50 +37,49 @@ body{
     text-rendering:optimizeLegibility;
     height:100vh
 }
-div.main{
+.main{
     display:flex;
     flex-direction:row;
     justify-content:flex-start;
-    opacity:1;
+    opacity:1
 }
-div.left{
+.left{
     position:fixed;
     width:65%;
     height:100vh;
     top:0;
     left:0
 }
-div.right
-{
-  visibility: visible;
+.right{
+    visibility:visible;
     position:absolute;
     width:35%;
     height:auto;
     top:0;
     right:0
 }
-div.customHeader{
+.customHeader{
     min-height:5%;
     max-height:40%;
     font-size:1vw;
     overflow:hidden;
     background:#ff7373;
-    z-index:5;
+    z-index:5
 }
-div.infoPanel{
+.infoPanel{
     width:calc(100% - 2vw - 2vw);
     height:auto;
     padding-left:2vw;
     right:2vw
 }
-div.section-links{
+.section-links{
     display:flex;
     margin:80px 0 0
 }
-div.section-links a{
+.section-links a{
     margin-right:40px
 }
-div.section-contact{
+.section-contact{
     margin:1% 0 5% 0
 }
 div.section-contact a{
@@ -91,23 +90,14 @@ h6{
     z-index:70;
     position:absolute
 }
-h1::selection{
-    background:#0062ff
-}
 a,h6{
     color:#000
-}
-h2::selection{
-    background:#0062ff
 }
 h3{
     font-size:12px;
     color:#848484;
     text-transform:uppercase;
     margin:1vh 0 3vh
-}
-h3::selection{
-    background:#0062ff
 }
 h6{
     font-size:14px;
@@ -116,28 +106,22 @@ h6{
     transform:rotate(90deg) translateX(10px);
     transform-origin:top right
 }
-h6::selection{
-    background:#0062ff
-}
-a::selection{
-    background:#0062ff
-}
-a.curriculum{
+.curriculum{
     font-size:15px
 }
-a.phone{
+.phone{
     color:#848484
 }
-a.email:hover{
+.email:hover{
     color:#0062ff
 }
-a.Linkedin{
+.Linkedin{
     font-size:25px;
     color:#ff7373;
     font-weight:700;
     text-transform:lowercase
 }
-div.firma{
+.firma{
     position:absolute;
     margin-left:2vw;
     bottom:2%;
@@ -147,7 +131,7 @@ div.firma{
     font-size:14px;
     color:#e0e0e0
 }
-div.idioma{
+.idioma{
     position:absolute;
     margin-right:2vw;
     top:2%;
@@ -155,15 +139,13 @@ div.idioma{
     z-index:70;
     text-align:right;
     font-size:14px;
-    color:white
+    color:#fff
 }
-
-div.idioma a{
+.idioma a{
     text-align:right;
     font-size:14px;
-    color:white
+    color:#fff
 }
-
 .customHeader p{
     text-align:justify;
     line-height:20px;
@@ -208,22 +190,20 @@ div.idioma a{
     margin-top:2vh;
     margin-bottom:1vh
 }
-
-.botonLenguaje
-{
-color: #FF7373 !important;
-text-transform: uppercase;
-background: #ffffff00;
-padding: 10px;
-border: 4px solid #FF7373 !important;
-border-radius: 6px;
-display: inline-block;
-font-weight: bold;
-cursor:pointer;
+.botonLenguaje{
+    color:#ff7373!important;
+    text-transform:uppercase;
+    background:#ffffff00;
+    padding:10px;
+    border:4px solid #ff7373!important;
+    border-radius:6px;
+    display:inline-block;
+    font-weight:700;
+    cursor:pointer
 }
-.botonLenguaje:hover {
-color: white !important;
-border-radius: 50px;
-border-color: white !important;
-transition: all 0.3s ease 0s;
+.botonLenguaje:hover{
+    color:#fff!important;
+    border-radius:50px;
+    border-color:#fff!important;
+    transition:all .3s ease 0s
 }
