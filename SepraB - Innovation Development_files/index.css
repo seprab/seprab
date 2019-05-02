@@ -284,6 +284,32 @@ h3.nombre{
       z-index:5;
       top: 0px;
   }
+  .idioma{
+      position:absolute;
+      margin-left:2vw;
+      top:340px;
+      left:0;
+      z-index:70;
+      text-align:left;
+      font-size:10px;
+      color:#fff
+  }
+  .idioma a{
+      text-align:right;
+      font-size:10px;
+      color:#fff
+  }
+  .botonLenguaje{
+      color:#ff7373!important;
+      text-transform:uppercase;
+      background:#ffffff00;
+      padding:5px;
+      border:1px solid #ff7373!important;
+      border-radius:20px;
+      display:inline-block;
+      font-weight:700;
+      cursor:pointer
+  }
   .infoPanel
   {
       display: block;
