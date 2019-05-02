@@ -63,7 +63,7 @@ body{
 .customHeader{
     min-height:5%;
     max-height:40%;
-    font-size:1vw;
+    font-size:17px;
     overflow:hidden;
     background:#ff7373;
     z-index:5
@@ -278,7 +278,7 @@ h3.nombre{
       display: block;
       position:absolute;
       height:180px;
-      font-size:4vw;
+      font-size:15px;
       overflow:hidden;
       background:#ff7373;
       z-index:5;
@@ -291,6 +291,14 @@ h3.nombre{
       height:auto;
       padding-left:2vw;
       padding-top: 360px;
+  }
+  ul.linksYoutube li
+  {
+    background-image: url('../SepraB - Innovation Development_files/Iconos/video_16x16.png');
+    background-repeat: no-repeat;
+    padding-left: 7vw;
+    line-height: 6vh;
+    vertical-align: bottom;
   }
   .firma{
       display: none
