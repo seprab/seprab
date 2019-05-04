@@ -110,7 +110,7 @@ ul.linksYoutube li
   background-image: url('../SepraB - Innovation Development_files/Iconos/video_16x16.png');
   background-repeat: no-repeat;
   padding-left: 25px;
-  line-height: 2vh;
+  line-height: 25px;
   vertical-align: middle;
 }
 ul.linksYoutube li a
@@ -326,8 +326,8 @@ h3.nombre{
   {
     background-image: url('../SepraB - Innovation Development_files/Iconos/video_16x16.png');
     background-repeat: no-repeat;
-    padding-left: 15px;
-    line-height: 6vh;
+    padding-left: 25px;
+    line-height: 25px;
     vertical-align: bottom;
   }
   .firma{
