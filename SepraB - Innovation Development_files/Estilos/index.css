@@ -4,10 +4,20 @@ a,body,div,footer,h1,h2,h3,h4,h5,h6,html,li,p,s,section,summary,ul{
     border:0;
     font:inherit;
     vertical-align:baseline;
-    text-decoration:none
+    text-decoration:none;
 }
 footer,section{
     display:block
+}
+table
+{
+    width: 90%;
+    margin-left: 5%;
+}
+td
+{
+    width: 50%;
+    padding: 25px 10px 25px 10px;
 }
 ul{
     list-style:none
@@ -33,11 +43,12 @@ body{
     font-family:Helvetica,sans-serif;
     font-size:20px;
     line-height:1.3;
-    color:#000;
+    color:#302729;
     text-transform:none;
     -webkit-font-smoothing:antialiased;
     text-rendering:optimizeLegibility;
-    height:100%
+    height:100%;
+    width: 100%;
 }
 .main{
     display:flex;
@@ -47,19 +58,160 @@ body{
 }
 .left{
     position:fixed;
-    width:65%;
+    width:380px;
     height:100vh;
     top:0;
-    left:0
+    left:0;
+    z-index: 1;
+    background-color: #13111b;
 }
-.right{
+.right
+{
     visibility:visible;
     position:absolute;
-    width:35%;
-    height:auto;
+    width: calc(100% - 380px);
+    margin-left: 380px;
+    height:100%;
     top:0;
-    right:0
+    right:0;
+    background-color: #1a1925;
 }
+.seccion
+{
+    height: 100%;
+    width: 100%;
+    background-color: #1a1925;
+}
+.marca
+{
+    font-size: 80px;
+    font-weight: 800;
+    color: #c5945c;
+    text-align: center;
+    padding-top: 33%;
+}
+.submarca
+{
+    font-size: 35px;
+    font-weight: 400;
+    color: #ffffff;
+    text-align: center;
+}
+.servicios
+{
+    width: 85%;
+    height: 90%;
+    margin-left: calc(15% / 2);
+    display: -webkit-box;
+}
+.columnaizq
+{
+    width: 40%;
+}
+.columnaizq .titulo
+{
+    font-size: 30px;
+    font-weight: 700;
+    color: #c5945c;
+    text-align: left;
+    margin-bottom: 20px;
+}
+.columnaizq .intro
+{
+    font-size: 27px;
+    font-weight: 400;
+    color: #c5945c;
+    text-align: left;
+    line-height: 30px;
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+.columnaizq .contenido
+{
+    font-size: 25px;
+    font-weight: 400;
+    color: #d8d7db;
+    text-align: left;
+    line-height: 28px;
+    margin-top: 25px;
+    margin-bottom: 20px;
+}
+.columnader
+{
+    width: 60%;
+    margin-left: 5%;
+}
+.columnader table tr
+{
+    height: 50%;
+    
+}
+.columnader table tr td .titulo
+{
+    font-size: 30px;
+    font-weight: 700;
+    color: #c5945c;
+    text-align: left;
+    margin-bottom: 20px;
+    
+}
+.columnader table tr .contenido
+{
+    font-size: 25px;
+    font-weight: 400;
+    color: #d8d7db;
+    text-align: left;
+    line-height: 28px;
+    margin-bottom: 20px;
+}
+td .progressback
+{
+    margin: 35px 25px 50px 25px;
+    height: 50px;
+    background-color: #2f2d3c;
+}
+.progress
+{
+    height: 135%;
+    background-color: #c5945c;
+    font-size: 30px;
+    font-weight: 700;
+    color: #d4d4d4;
+    text-align: left;
+    transform: translateY(-5px);
+}
+.seccion .titulo
+{
+    font-size: 45px;
+    font-weight: 700;
+    color: #c5945c;
+    text-align: left;
+    margin-bottom: 20px;
+    margin-left: 5%;
+}
+.btn 
+{
+    position: absolute;
+    background-color: #2f2d3c;
+    border: none;
+    color: #c5945c;
+    padding: 20px 32px;
+    text-align: center;
+    font-size: 20px;
+    margin-top: 10%;
+    transition: 0.3s;
+    width: 100%;
+    font-weight: 450;
+    bottom:0px;
+  }
+  
+  .btn:hover {
+    background-color: #c5945c;
+    color: #d4d4d4;
+    font-size: 25px;
+    font-weight: 600;
+    letter-spacing: 3px;
+  }
 .customHeader{
     min-height:5%;
     max-height:40%;
@@ -72,7 +224,6 @@ body{
     width:calc(100% - 2vw - 2vw);
     height:auto;
     padding-left:2vw;
-    right:2vw
 }
 .section-links{
     display:flex;
@@ -90,7 +241,7 @@ h6{
     position:absolute
 }
 a,h6{
-    color:#000
+    color:#e6e6e7
 }
 h3{
     font-size:12px;
@@ -130,7 +281,6 @@ ul.linksYoutube li a
 .topLinks
 {
   display: inline;
-  float: right;
 }
 h3.nombre{
     font-size:12px;
@@ -243,8 +393,23 @@ h3.nombre{
 }
 .infoPanel h3
 {
-  font-weight: 700;
+    font-size: 12px;
+    line-height: 10px;
+    letter-spacing: 5px;
+    font-weight: 400;
+    color: #c5945c;
+    margin-bottom: 0;
+    
 }
+.infoPanel h4
+{
+    font-size: 18px;
+    line-height: 30px;
+    letter-spacing: 1px;
+    font-weight: 500;
+    color: #e6e6e7;
+}
+
 @media screen and (max-width: 800px)
 {
   .main
@@ -317,6 +482,7 @@ h3.nombre{
   .infoPanel
   {
       display: block;
+      position: relative;
       width: 100%;
       height:auto;
       padding-left:2vw;
