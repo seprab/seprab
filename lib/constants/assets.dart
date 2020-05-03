@@ -10,4 +10,5 @@ class Assets {
   static const String twitter = 'assets/icons/ic_twitter.png';
   static const String linkedin = 'assets/icons/ic_linkedIn.png';
   static const String cv = 'assets/icons/ic_cv.png';
+  static const String mail = 'assets/icons/ic_mail.png';
 }
