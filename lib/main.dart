@@ -1,9 +1,9 @@
 import 'package:flutter_web/material.dart';
 import 'package:portfolio/ui/home.dart';
-
 import 'package:portfolio/utils/screen/screen_utils.dart';
 
-void main() {
+void main() 
+{
   runApp(MyApp());
 }
 
