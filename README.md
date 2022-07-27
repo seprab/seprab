@@ -7,7 +7,7 @@ I'm Sergio Prada, alias SepraB
 Here are some ideas to get you started:
 -->
 
-- 🔭 I’m currently working on Unity Technologies as a Support Engineer
+- 🔭 I’m currently working on becoming a better software engineer
 - 🌱 I’m currently learning how to delop android apps using C++ and Raylib
 - 👯 I’m looking to collaborate on projects aligning with my learning path
 - 🤔 I’m looking for help with finding affordable advanced C++ and graphics programming courses
