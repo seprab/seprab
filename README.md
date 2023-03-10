@@ -2,10 +2,6 @@
 
 I'm Sergio Prada, alias SepraB
 
-<!--
-**seprab/seprab** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-Here are some ideas to get you started:
--->
 
 - 🔭 I’m currently working on becoming a better software engineer
 - 🌱 I’m currently learning how to delop android apps using C++ and Raylib
@@ -16,3 +12,18 @@ Here are some ideas to get you started:
 - 😄 Pronouns: He/Him
 - ⚡ Fun fact: ... None :(
 
+I'm hosting my profile site using github pages in https://seprab.github.io/seprab/
+
+My intention is to host a short CV in there and a blog.
+
+<!--
+I will be using https://getpelican.com/ for generating the blog
+And I still need to look on how to generate the CV.
+
+Personal information:
+
+I'm generetating the pelican site in my machine with the following command
+
+C:\Users\SergioPradaBarrios\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\python.exe -m pelican content
+
+-->
