@@ -19,7 +19,50 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="../seprab-timeline.html">SepraB - Timeline</a></h1>
+                    <h1 class="entry-title"><a href="../linux-docker-container-unity-android.html">Linux Docker container + Unity + Android</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2023-03-16T00:52:00-05:00">
+                Published: Thu 16 March 2023
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="../author/seprab.html">SepraB</a>
+        </address>
+<p>In <a href="../category/notes.html">Notes</a>.</p>
+
+</footer><!-- /.post-info --><p>In the last few days, I've been exploring what is docker and how to run Unity on it. Indeed, I've used <a href="https://github.com/game-ci/docker">GameCI</a> in the past and worked good for me, nonetheless, I wanted something simple and from scratch. </p>
+<blockquote>
+<p><em>something like docker + unity for dummies</em>.</p>
+</blockquote>
+<p>While investigating it, I found important resources that are not easily found when googling about it, e.g.,</p>
+<ul>
+<li>Unity Hub CLI guide: <a href="https://docs.unity3d.com/hub/manual/HubCLI.html">https://docs.unity3d.com/hub/manual/HubCLI.html</a></li>
+<li>Unity Hub changelog: <a href="https://unity.com/unity-hub/release-notes">https://unity.com/unity-hub/release-notes</a></li>
+</ul>
+<p>With it, I built a minimal set of files for using a Ubuntu 18.04 container with Unity hub + Unity 2021.3 + Android submodules. <a href="https://github.com/seprab/UnityDockerBuilder">https://github.com/seprab/UnityDockerBuilder</a></p>
+<p>Other than the bunch of documention in the web, I learn:
+- A Unity pro/plus account is required to run Unity in CLI because a personal license cannot be activated without GUI.
+- Unity don't support docker. Nonetheless, it is on their roadmap, and under consideration: <a href="https://portal.productboard.com/gupat5mdsl4luvs35fqy5vlq/tabs/50-desktop">Product board portal</a>
+- The Unity Hub is not working well in docker containers. So, Installing the editor directly might be a better option. Still, installing submodules (e.g., JDK, NDK) can be a headache.
+- It is necessary to specify all the submodules to install Unity with Android automatically <a href="https://github.com/seprab/UnityDockerBuilder/blob/a4725a6fcb730817ea549914852435dc58ac5851/image-setup.sh#L32"><code>-m android -m android-sdk-ndk-tools -m android-open-jdk</code></a>. Otherwise, if the command lacks of one module, the Hub will request user input, and since it is unsupervised, the docker image creation fail.
+- When installing the editor version, the changeset is a must. Otherwise, the hub will fail when looking for the editor version to install.
+- I was running out of disk space when running my tests, and docker instance broke. Then, it prompt me to choose deleting the images and containers for recovering docker. Otherwise, I couldn't continue making use of it.</p>
+<blockquote>
+<p>I plan to continue working on this repo. I'll feed the repo readme with my future plans.</p>
+</blockquote>                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="../seprab-timeline.html" rel="bookmark"
+                           title="Permalink to SepraB - Timeline">SepraB - Timeline</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2023-03-12T01:08:00-05:00">
                 Published: Sun 12 March 2023
@@ -30,114 +73,10 @@
         </address>
 <p>In <a href="../category/cv.html">CV</a>.</p>
 <p>tags: <a href="../tag/cv.html">CV</a> <a href="../tag/portfolio.html">Portfolio</a> </p>
-</footer><!-- /.post-info -->
-  <div class="timeline-area">
-    <div class="container">
-      <div class="timelines">
-        <br>
-        <h2>Sergio Prada</h2>
-      </div>
-      <div class="all-timelines">
-        <!--SINGLE TIMELINE-->
-        <div class="single-timeline d-flex-2">
-          <div class="timeline-blank"></div>
-          <div class="timeline-text d-flex-2">
-            <span>
-              <h6>December 2020 - FROM INFINITY TO FOREVER</h6>
-              <br>Unity Technologies
-              <br>Software Engineer, Engine Support
-              <br>Enable customer success globally by delivering solutions, tools and knowledge.
-            </span>
-            <div class="t-square"></div>
-          </div>
-        </div>
-        <!--SINGLE TIMELINE-->
-        <div class="single-timeline d-flex-2">
-          <div class="timeline-blank"></div>
-          <div class="timeline-text d-flex-2">
-            <span>
-              <h6>July 2020 - October 2020 </h6>
-              <br>CESA
-              <br>Software Developer
-              <br>I developed a multi‐platform gamified application to entertain and engage their employees with the
-              institution.
-            </span>
-            <div class="t-square"></div>
-          </div>
-        </div>
-        <!--SINGLE TIMELINE-->
-        <div class="single-timeline d-flex-2">
-          <div class="timeline-blank"></div>
-          <div class="timeline-text d-flex-2">
-            <span>
-              <h6>May 2019 - August 2020</h6>
-              <br>Toro-Labs
-              <br>Multi-platform Unity Developer
-              <br>I was hired by Toro‐Labs in order to be part of the development pipeline of six virtual laboratories
-              that offers learning, training, practice and games. https://cloudlabs.us/
-            </span>
-            <div class="t-square"></div>
-          </div>
-        </div>
-        <!--SINGLE TIMELINE-->
-        <div class="single-timeline d-flex-2">
-          <div class="timeline-blank"></div>
-          <div class="timeline-text d-flex-2">
-            <span>
-              <h6>October 2017 - March 2020</h6>
-              <br>M&S; Holding Group
-              <br>Software Engineer
-              <br>I worked mainly on two simulation software and multiple other minimal software projects.
-            </span>
-            <div class="t-square"></div>
-          </div>
-        </div>
-        <!--SINGLE TIMELINE-->
-        <div class="single-timeline d-flex-2">
-          <div class="timeline-blank"></div>
-          <div class="timeline-text d-flex-2">
-            <span>
-              <h6>August 2017 - February 2018</h6>
-              <br>3dementes
-              <br>XR Developer
-              <br>I worked on multiple minor projects. Mainly brand activation VR projects.
-            </span>
-            <div class="t-square"></div>
-          </div>
-        </div>
-        <!--SINGLE TIMELINE-->
-        <div class="single-timeline d-flex-2">
-          <div class="timeline-blank"></div>
-          <div class="timeline-text d-flex-2">
-            <span>
-              <h6>2017 - 2017</h6>
-              <br>University of Ontario Institute of Technology
-              <br>Scholarship - Emerging Leaders in the Americas Program, Game Development and Entrepreneurship -
-              Computer Science
-            </span>
-            <div class="t-square"></div>
-          </div>
-        </div>
-        <!--SINGLE TIMELINE-->
-        <div class="single-timeline d-flex-2">
-          <div class="timeline-blank"></div>
-          <div class="timeline-text d-flex-2">
-            <span>
-              <h6>2012 - 2017</h6>
-              <br>Universidad Militar Nueva Granada
-              <br>Multimedia Engineer
-            </span>
-            <div class="t-square"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+</footer><!-- /.post-info -->                Timeline of my experience
+                <a class="readmore" href="../seprab-timeline.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
