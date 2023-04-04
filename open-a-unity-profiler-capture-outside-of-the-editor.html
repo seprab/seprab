@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="generator" content="Pelican" />
+        <title>Open a Unity profiler capture outside of the Editor</title>
+        <link rel="stylesheet" href="./theme/css/main.css" />
+        <meta name="description" content="TLDR The Editor iteration profiler (EIP) has a built-in functionality for exporting data from the profiler in different formats (html, csv, json)...." />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="./">SepraB's</a></h1>
+                <nav><ul>
+                    <li><a href="./category/cv.html">CV</a></li>
+                    <li class="active"><a href="./category/notes.html">Notes</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="./open-a-unity-profiler-capture-outside-of-the-editor.html" rel="bookmark"
+           title="Permalink to Open a Unity profiler capture outside of the Editor">Open a Unity profiler capture outside of the Editor</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2023-04-01T00:00:00-05:00">
+                Published: Sat 01 April 2023
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="./author/seprab.html">SepraB</a>
+        </address>
+<p>In <a href="./category/notes.html">Notes</a>.</p>
+
+</footer><!-- /.post-info -->      <h2>TLDR</h2>
+<blockquote>
+<p>The <a href="https://forum.unity.com/threads/introducing-the-editor-iteration-profiler.908390/">Editor iteration profiler (EIP)</a> has a built-in functionality for exporting data from the profiler in different formats (html, csv, json). Below I explain how it worked for me when I needed to inspect a profiler capture in <a href="chrome://tracing">chrome://tracing</a>. </p>
+</blockquote>
+<p>Recently, while working with a customer case, investigating a performance issue. I faced a kind of 'blocker' because they sent a profiler capture of +4GB size and it required +50GB of memory for opening in the editor. And, my computer is 32 GB only.</p>
+<p>I cannot ensure my next hyphotesis is 100% correct, but here I go:</p>
+<ol>
+<li>
+<p>The capture was 1 frame long that lasted more than 15 minutes.</p>
+</li>
+<li>
+<p>The profiler captures are not completely events based. Every tick, it records the data of the markers being excecuted.</p>
+</li>
+<li>
+<p>As far as I know, a marker has a lot of information. E.g., Name, Category, time, parent/children relationship, calls from/to, etc.</p>
+</li>
+<li>
+<p>When something like the above happens, there's a lot to unpack and to keep in memory for visualizing and interacting with the data.</p>
+</li>
+</ol>
+<p>So, when I tried to open the capture in my computer, it went out of memory, and I believe that something like the kernel killed the application taking all this memory. So, yes, I could remotely work in the computer of a colleague (and I tried, his machine was 64 GB; still, every click was +10 s waiting for the profiler to load the corresponding information) but how could I work with it in my machine?</p>
+<p>Approximately two years ago, the Unity team released the editor iteration profiler which is intended to measure a repetitive task in the editor. For example, you want to profile every 'OnEnterPlayMode' action and validate what's (un)healthy for this task, so you toggle the EIP on and start 'iterating' (entering play mode, exiting play mode, making a change... and repeating the process). Finally, the collected data can be exported as HTML, Json and CSV.</p>
+<p>The good news is that this package actually let you export every what ever is loaded in the profiler.</p>
+<p>So, what did I do?</p>
+<ol>
+<li>
+<p>Find a computer that can open the profiler capture.</p>
+</li>
+<li>
+<p>Install the EIP. </p>
+<ul>
+<li>How? Download the zip package from <a href="https://github.com/Unity-Technologies/com.unity.editoriterationprofiler">here</a>, and add it to the packages folder in the Unity project where you will be opening the capture.</li>
+</ul>
+</li>
+<li>
+<p>Open the profiler capture.</p>
+</li>
+<li>
+<p>Open the EIP window. Window &gt; Analysis &gt; Editor Iteration Profiler &gt; Show Window.</p>
+</li>
+<li>
+<p>From the EIP window’s toolbar, select Export Profiler Data &gt; Export Selected Frame.</p>
+</li>
+<li>
+<p>Choose the .json format and save it.</p>
+</li>
+<li>
+<p>From the browser, open <a href="https://www.ui.perfetto.dev/">perfetto</a> or <a href="chrome://tracing">chrome://tracing</a>.</p>
+</li>
+<li>
+<p>Open the json capture there.</p>
+</li>
+</ol>
+<p>Some notes:</p>
+<ul>
+<li>
+<p>Depending on the need, another export format could be more suitable. A detailed explanation of these are in <a href="https://github.com/Unity-Technologies/com.unity.editoriterationprofiler/blob/master/Documentation~/exporting-data.md">https://github.com/Unity-Technologies/com.unity.editoriterationprofiler/blob/master/Documentation~/exporting-data.md</a>.</p>
+</li>
+<li>
+<p>In my case, the size of the exported data became way smaller (&lt;1 MB) because it keeps less information.</p>
+</li>
+<li>
+<p>I understood the <a href="chrome://tracing">chrome://tracing</a> visualization can show different information from the Unity built-in profiler because it builds the information based on the times of every marker. When two markers are being excecuted at the same time, the UI says that the parent marker is the one starting earlier.
+In the words of <a href="https://aras-p.info/blog/2017/01/23/Chrome-Tracing-as-Profiler-Frontend/">Aras</a>, </p>
+<blockquote>
+<p>There’s no need to indicate parent-child relationships between the events; the UI automatically figures that out based on event timings.</p>
+</blockquote>
+</li>
+</ul>
+<p>At some point, I'd like to be capable of opening an editor profiler capture without the need of creating a Unity project and opening the Unity editor.</p>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="https://seprab.github.io/seprab/seprab-timeline.html">CV</a></li>
+                            <li><a href="#">Currently working on</a></li>
+                            <li><a href="mailto:sergioeprada@hotmail.com">Mail me</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://twitter.com/PinguinoSepraB">Twiter</a></li>
+                            <li><a href="https://www.linkedin.com/in/seprab/">LinkedIn</a></li>
+                            <li><a href="http://github.com/seprab">github</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
