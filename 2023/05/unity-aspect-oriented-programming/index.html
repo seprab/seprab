@@ -88,51 +88,78 @@
         <div id="blog_main_area" class="left col-md-9" count=5>
   <!-- article title -->
   <header>
-      <h1>SepraB's Timeline</h1>
+      <h1>Unity Aspect Oriented Programming</h1>
     <small class="fsize13">
-            <a href="../../../category/about-me.html" rel="tag tooltip" class="label label-default light" data-placement="right" data-original-title="1 article in this category"><i class="fa fa-dot-circle-o"></i> About me</a>
-      <a href="../../../2023/03/seprabs-timeline/#disqus_thread" class="scrollTo label label-default light" data-disqus-identifier="2023/03/seprabs-timeline/"><i class="fa fa-comment-o"></i> ?? Comments</a>
-      <span class="label label-default light">12/Mar/2023 Sun</span> 
+            <a href="../../../category/unity.html" rel="tag tooltip" class="label label-default light" data-placement="right" data-original-title="3 articles in this category"><i class="fa fa-dot-circle-o"></i> Unity</a>
+      <a href="../../../2023/05/unity-aspect-oriented-programming/#disqus_thread" class="scrollTo label label-default light" data-disqus-identifier="2023/05/unity-aspect-oriented-programming/"><i class="fa fa-comment-o"></i> ?? Comments</a>
+      <span class="label label-default light">16/May/2023 Tue</span> 
     </small>
   </header>
 
   <article class='content'>
-    <h2>Sergio Prada</h2>
-<p><br><br><em>December 2020 - FROM INFINITY TO FOREVER</em></p>
-<p>&emsp; <strong>Unity Technologies</strong></p>
-<p>&emsp; Software Engineer, Engine Support</p>
-<p>&emsp; Enable customer success globally by delivering solutions, tools and knowledge.</p>
-<p><br><br><em>July 2020 - October 2020</em></p>
-<p>&emsp; <strong>CESA</strong></p>
-<p>&emsp; Software Developer</p>
-<p>&emsp; I developed a multi‐platform gamified application to entertain and engage their employees with the institution.  </p>
-<p><br><br><em>May 2019 - August 2020</em></p>
-<p>&emsp; <strong>Toro-Labs</strong></p>
-<p>&emsp; Multi-platform Unity Developer</p>
-<p>&emsp; I was hired by Toro‐Labs in order to be part of the development pipeline of six virtual laboratories that offers learning, training, practice and games. https://cloudlabs.us/  </p>
-<p><br><br><em>October 2017 - March 2020</em></p>
-<p>&emsp; <strong>M&amp;S Holding Group</strong></p>
-<p>&emsp; Software Engineer</p>
-<p>&emsp; I worked mainly on two simulation software and multiple other minimal software projects.  </p>
-<p><br><br><em>August 2017 - February 2018</em></p>
-<p>&emsp; <strong>3dementes</strong></p>
-<p>&emsp; XR Developer</p>
-<p>&emsp; I worked on multiple minor projects. Mainly brand activation VR projects.  </p>
-<p><br><br><em>2017 - 2017</em></p>
-<p>&emsp; <strong>University of Ontario Institute of Technology</strong></p>
-<p>&emsp; Scholarship - Emerging Leaders in the Americas Program, Game Development and Entrepreneurship - Computer Science.  </p>
-<p><br><br><em>2012 - 2017</em></p>
-<p>&emsp; <strong>Universidad Militar Nueva Granada</strong></p>
-<p>&emsp; Multimedia Engineer.  </p>
+    <p>Recently, a customer asked how to feed profiler counters without actually adding 'intrusive code'.</p>
+<p>So, the first questions is, what does 'intrusive code' means?
+They refered to the act of adding more code to the working source files. For reference, we frequently run into this scenario when:</p>
+<ol>
+<li>Printing debug information to the console. Such as for tracking the value of a variable or the triggering of events. <a href="https://docs.unity3d.com/ScriptReference/Debug.Log.html">Traditional Debug.Log examples</a>.</li>
+<li>Enclosing sections of code with profiling markers for measuring the time, calls, hierarchy and other metadata. <a href="https://docs.unity3d.com/ScriptReference/Unity.Profiling.ProfilerMarker.html">Traditional ProfilerMarker implementation</a>.</li>
+</ol>
+<p>And less frequently, but stil a common example with profiler counters. <a href="https://docs.unity3d.com/Packages/com.unity.profiling.core@1.0/manual/profilercounter-guide.html">Documentation here</a>.</p>
+<p>A simple firing script would look like this:</p>
+<div class="highlight"><pre><span></span><code>void Fire()
+{
+    Sound.Play();
+    projectile = Instantiate(Bullet);
+    projectile.velocity = projectile.transform.forward * bulletSpeed;
+}
+</code></pre></div>
+
+<p>In case, we want to measure it with the built-in profiler and keep track of the number of bullets, and print to console when this method is invoked, the method would look like below:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">static</span><span class="w"> </span><span class="nv">readonly</span><span class="w"> </span><span class="nv">ProfilerMarker</span><span class="w"> </span><span class="nv">s_CustomMarker</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">new</span><span class="w"> </span><span class="nv">ProfilerMarker</span><span class="ss">(</span><span class="s2">&quot;Gun.Fire&quot;</span><span class="ss">)</span><span class="c1">;</span>
+<span class="nv">void</span><span class="w"> </span><span class="nv">Fire</span><span class="ss">()</span>
+{
+<span class="w">    </span><span class="nv">s_CustomMarker</span>.<span class="nv">Begin</span><span class="ss">()</span><span class="c1">;</span>
+<span class="w">    </span><span class="nv">Sound</span>.<span class="nv">Play</span><span class="ss">()</span><span class="c1">;</span>
+<span class="w">    </span><span class="nv">projectile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Instantiate</span><span class="ss">(</span><span class="nv">Bullet</span><span class="ss">)</span><span class="c1">;</span>
+<span class="w">    </span><span class="nv">projectile</span>.<span class="nv">velocity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">projectile</span>.<span class="nv">transform</span>.<span class="nv">forward</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nv">bulletSpeed</span><span class="c1">;</span>
+<span class="w">    </span><span class="nv">CustomProfilerModule</span>.<span class="nv">BulletCount</span>.<span class="nv">value</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="c1">;</span>
+<span class="w">    </span><span class="nv">Debug</span>.<span class="nv">Log</span><span class="ss">(</span><span class="s2">&quot;Firing the gun&quot;</span><span class="ss">)</span><span class="c1">;</span>
+<span class="w">    </span><span class="nv">s_CustomMarker</span>.<span class="k">End</span><span class="ss">()</span><span class="c1">;</span>
+}
+</code></pre></div>
+
+<p>In my opinion, this makes the code feel and look less cleaner. Also, we are combining tasks in a single place, thus, adding complexity to it.</p>
+<p>After googling for this type of inquiry, I found there's something called <a href="https://stackoverflow.com/questions/72706171/can-attributes-be-used-to-modify-a-methods-code-behavior#comment128426717_72706536">Aspect-Oriented Programming (AOP)</a> and I also found a github user that created a framework for working with this paradigm in Unity. https://github.com/H1M4W4R1/Unity-Aspect-Oriented-Programming</p>
+<p>I'm not going into the details of this framework, as <a href="https://github.com/H1M4W4R1">H1M4W4R1</a> the important bits of it in the repo <a href="https://github.com/H1M4W4R1/Unity-Aspect-Oriented-Programming/blob/master/README.md">README.md</a>.</p>
+<p>This framework allowed me to achieve the goal of profiling and debugging code with just decorating the target method as below:</p>
+<div class="highlight"><pre><span></span><code><span class="k">[BulletCounter]</span>
+<span class="k">[AddProfilerMarker]</span>
+<span class="na">void Fire()</span>
+<span class="na">{</span>
+<span class="w">    </span><span class="na">Sound.Play();</span>
+<span class="w">    </span><span class="na">projectile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">Instantiate(Bullet)</span><span class="c1">;</span>
+<span class="w">    </span><span class="na">projectile.velocity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">projectile.transform.forward * bulletSpeed</span><span class="c1">;</span>
+<span class="na">}</span>
+</code></pre></div>
+
+<p>If you'd like to explore the test I ran, please visit the following repository: https://github.com/seprab/Unity-AOP-proof</p>
+<p>Things that I'd like to do:
+* Validate how it behaves in real projects.
+    * What's the perfomance impact when iterating in the editor?
+    * Compatibility with different Unity versions and target platforms.
+    * Compatibility with asmdefs and dlls.
+* How to debug it?
+* Conditional code processing.
+* And I guess there might be unkown limitations, such as with Fast Enter Play Mode, backend compiling configuration, code stripping, etc.</p>
   </article>
 
   <div class="divider"><!-- lines divider --></div>
 
   <!-- SOCIAL -->
 <p class="socials">
-    <a href="http://www.facebook.com/sharer/sharer.php?u=../../../2023/03/seprabs-timeline/" class="rounded-icon social fa fa-facebook" target="_blank" title="Share on Facebook"><!-- facebook --></a>
-    <a href="http://twitter.com/home?status=../../../2023/03/seprabs-timeline/" class="rounded-icon social fa fa-twitter" target="_blank" title="Share on Twitter"><!-- twitter --></a>
-    <a href="http://www.linkedin.com/shareArticle?mini=true&url=../../../2023/03/seprabs-timeline/&title=SepraB's Timeline&summary=&source=" class="rounded-icon social fa fa-linkedin" target="_blank" title="Share on Linkedin"><!-- linkedin --></a>
+    <a href="http://www.facebook.com/sharer/sharer.php?u=../../../2023/05/unity-aspect-oriented-programming/" class="rounded-icon social fa fa-facebook" target="_blank" title="Share on Facebook"><!-- facebook --></a>
+    <a href="http://twitter.com/home?status=../../../2023/05/unity-aspect-oriented-programming/" class="rounded-icon social fa fa-twitter" target="_blank" title="Share on Twitter"><!-- twitter --></a>
+    <a href="http://www.linkedin.com/shareArticle?mini=true&url=../../../2023/05/unity-aspect-oriented-programming/&title=Unity Aspect Oriented Programming&summary=&source=" class="rounded-icon social fa fa-linkedin" target="_blank" title="Share on Linkedin"><!-- linkedin --></a>
 </p>  
 
   <!-- TAGS -->
