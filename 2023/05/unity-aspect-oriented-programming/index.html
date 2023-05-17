@@ -129,7 +129,7 @@ They refered to the act of adding more code to the working source files. For ref
 </code></pre></div>
 
 <p>In my opinion, this makes the code feel and look less cleaner. Also, we are combining tasks in a single place, thus, adding complexity to it.</p>
-<p>After googling for this type of inquiry, I found there's something called <a href="https://stackoverflow.com/questions/72706171/can-attributes-be-used-to-modify-a-methods-code-behavior#comment128426717_72706536">Aspect-Oriented Programming (AOP)</a> and I also found a github user that created a framework for working with this paradigm in Unity. https://github.com/H1M4W4R1/Unity-Aspect-Oriented-Programming</p>
+<p>After googling for this type of inquiry, I found there's something called <a href="https://stackoverflow.com/questions/72706171/can-attributes-be-used-to-modify-a-methods-code-behavior#comment128426717_72706536">Aspect-Oriented Programming (AOP)</a> and I also found a github user that created a framework for working with this paradigm in Unity. <a href="https://github.com/H1M4W4R1/Unity-Aspect-Oriented-Programming">github.com/H1M4W4R1/Unity-Aspect-Oriented-Programming</a></p>
 <p>I'm not going into the details of this framework, as <a href="https://github.com/H1M4W4R1">H1M4W4R1</a> the important bits of it in the repo <a href="https://github.com/H1M4W4R1/Unity-Aspect-Oriented-Programming/blob/master/README.md">README.md</a>.</p>
 <p>This framework allowed me to achieve the goal of profiling and debugging code with just decorating the target method as below:</p>
 <div class="highlight"><pre><span></span><code><span class="k">[BulletCounter]</span>
@@ -142,15 +142,19 @@ They refered to the act of adding more code to the working source files. For ref
 <span class="na">}</span>
 </code></pre></div>
 
-<p>If you'd like to explore the test I ran, please visit the following repository: https://github.com/seprab/Unity-AOP-proof</p>
-<p>Things that I'd like to do:
-* Validate how it behaves in real projects.
-    * What's the perfomance impact when iterating in the editor?
-    * Compatibility with different Unity versions and target platforms.
-    * Compatibility with asmdefs and dlls.
-* How to debug it?
-* Conditional code processing.
-* And I guess there might be unkown limitations, such as with Fast Enter Play Mode, backend compiling configuration, code stripping, etc.</p>
+<p>If you'd like to explore the test I ran, please visit the following repository: <a href="https://github.com/seprab/Unity-AOP-proof">github.com/seprab/Unity-AOP-proof</a></p>
+<p>Things that I'd like to do:</p>
+<ul>
+<li>Validate how it behaves in real projects.<ul>
+<li>What's the perfomance impact when iterating in the editor?</li>
+<li>Compatibility with different Unity versions and target platforms.</li>
+<li>Compatibility with asmdefs and dlls.</li>
+</ul>
+</li>
+<li>How to debug it?</li>
+<li>Conditional code processing.</li>
+<li>And I guess there might be unkown limitations, such as with Fast Enter Play Mode, backend compiling configuration, code stripping, etc.</li>
+</ul>
   </article>
 
   <div class="divider"><!-- lines divider --></div>
