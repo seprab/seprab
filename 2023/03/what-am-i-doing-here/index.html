@@ -123,7 +123,29 @@
   <div class="divider"><!-- lines divider --></div>
 
   <!-- SOCIAL -->
+
+<!-- Load Facebook SDK for JavaScript -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+var js, fjs = d.getElementsByTagName(s)[0];
+if (d.getElementById(id)) return;
+js = d.createElement(s); js.id = id;
+js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
 <p class="socials">
+    <!-- Your share button code -->
+    <div class="fb-share-button" 
+        data-href="../../../2023/03/what-am-i-doing-here/" 
+        data-layout="button">
+    </div>
+    <a class="twitter-share-button"
+  href="https://twitter.com/intent/tweet?text=Hello!%20I%20found%20this%20on%20SepraB's%20blog%20../../../2023/03/what-am-i-doing-here/"
+  target="_blank">
+Tweet</a>
     <a href="http://www.facebook.com/sharer/sharer.php?u=../../../2023/03/what-am-i-doing-here/" class="rounded-icon social fa fa-facebook" target="_blank" title="Share on Facebook"><!-- facebook --></a>
     <a href="http://twitter.com/home?status=../../../2023/03/what-am-i-doing-here/" class="rounded-icon social fa fa-twitter" target="_blank" title="Share on Twitter"><!-- twitter --></a>
     <a href="http://www.linkedin.com/shareArticle?mini=true&url=../../../2023/03/what-am-i-doing-here/&title=What am I doing here?&summary=&source=" class="rounded-icon social fa fa-linkedin" target="_blank" title="Share on Linkedin"><!-- linkedin --></a>
