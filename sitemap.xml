@@ -4,84 +4,84 @@ xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitem
 xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
-<loc>seprab.com/</loc>
-<lastmod>2023-05-22T00:08:09-00:00</lastmod>
+<loc>https://seprab.com/</loc>
+<lastmod>2023-05-22T00:41:28-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>seprab.com/archives.html</loc>
-<lastmod>2023-05-22T00:08:09-00:00</lastmod>
+<loc>https://seprab.com/archives.html</loc>
+<lastmod>2023-05-22T00:41:28-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>seprab.com/blog.html</loc>
-<lastmod>2023-05-22T00:08:09-00:00</lastmod>
+<loc>https://seprab.com/blog.html</loc>
+<lastmod>2023-05-22T00:41:28-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>seprab.com/2023/05/unity-aspect-oriented-programming/</loc>
+<loc>https://seprab.com/2023/05/unity-aspect-oriented-programming/</loc>
 <lastmod>2023-05-16T23:16:00-05:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>seprab.com/2023/04/open-a-unity-profiler-capture-outside-of-the-editor/</loc>
+<loc>https://seprab.com/2023/04/open-a-unity-profiler-capture-outside-of-the-editor/</loc>
 <lastmod>2023-04-01T00:00:00-05:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>seprab.com/2023/03/linux-docker-container-unity-android/</loc>
+<loc>https://seprab.com/2023/03/linux-docker-container-unity-android/</loc>
 <lastmod>2023-03-16T00:52:00-05:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>seprab.com/2023/03/seprabs-timeline/</loc>
+<loc>https://seprab.com/2023/03/seprabs-timeline/</loc>
 <lastmod>2023-03-12T01:08:00-05:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>seprab.com/2023/03/what-am-i-doing-here/</loc>
+<loc>https://seprab.com/2023/03/what-am-i-doing-here/</loc>
 <lastmod>2023-03-10T11:34:00-05:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>seprab.com/category/about-me.html</loc>
+<loc>https://seprab.com/category/about-me.html</loc>
 <lastmod>2023-03-12T01:08:00-04:56</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>seprab.com/category/generic.html</loc>
+<loc>https://seprab.com/category/generic.html</loc>
 <lastmod>2023-03-10T11:34:00-04:56</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>seprab.com/category/unity.html</loc>
+<loc>https://seprab.com/category/unity.html</loc>
 <lastmod>2023-05-16T23:16:00-04:56</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>seprab.com/author/seprab.html</loc>
+<loc>https://seprab.com/author/seprab.html</loc>
 <lastmod>2023-05-16T23:16:00-04:56</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>

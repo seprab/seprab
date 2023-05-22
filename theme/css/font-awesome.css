@@ -574,9 +574,6 @@
 .fa-cogs:before {
   content: "\f085";
 }
-.fa-comments:before {
-  content: "\f086";
-}
 .fa-thumbs-o-up:before {
   content: "\f087";
 }
@@ -815,12 +812,6 @@
 .fa-dashboard:before,
 .fa-tachometer:before {
   content: "\f0e4";
-}
-.fa-comment-o:before {
-  content: "\f0e5";
-}
-.fa-comments-o:before {
-  content: "\f0e6";
 }
 .fa-flash:before,
 .fa-bolt:before {
