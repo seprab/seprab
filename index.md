@@ -1,7 +1,8 @@
 ---
 layout: default
-title: "SepraB's"
-author: "SepraB"
+title: SepraB's
+author: SepraB
+description: Home page
 ---
 
 # SepraB's

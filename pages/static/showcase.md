@@ -1,3 +1,9 @@
+---
+layout: default
+title: SepraB's
+author: SepraB
+description: Showcase
+---
 ## Showcase
 
 This is a quick mention to projects where I participated or I am participating. Showing projects where I worked is not an easy task due to non-disclosure agreements or simply no public web reference to it. In case you'd like to better understand my experience visit my LinkedIn profile or visit MY CV.

@@ -1,3 +1,9 @@
+---
+layout: default
+title: SepraB's
+author: SepraB
+description: Blog index
+---
 ## Blog
 
 #### Unity Aspect Oriented Programming

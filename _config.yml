@@ -3,6 +3,6 @@ plugins:
 - jekyll-remote-theme # add this line to the plugins list if you already have one
 gem "github-pages", group: :jekyll_plugins
 title: SepraB
-description: SepraB's personal website
+description: Personal website
 show_downloads: false
 google_analytics: [Your Google Analytics tracking ID]
