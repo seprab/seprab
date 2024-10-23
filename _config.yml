@@ -6,3 +6,5 @@ title: SepraB
 description: Personal website
 show_downloads: false
 google_analytics: [Your Google Analytics tracking ID]
+github:
+  home: https://seprab.com/
