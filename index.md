@@ -9,7 +9,7 @@ description: Home page
 - [Showcase](./pages/static/showcase.md)
 - [Blog](./pages/static/blog.md)
 - [My CV](./pages/static/CV.md)
-- [Contact](mailto:sergioeprada@hotmail.com?Subject=Hey%20Sergio%20I%20come%20from%20your%website)
+- [Reach out](mailto:sergioeprada@hotmail.com?Subject=Hey%20Sergio%20I%20come%20from%20your%website)
 
 ## About Me
 My name is Sergio Prada, a Sr. Software Engineer at Unity Technologies. I'm working and living in Colombia. My experience spans various domains: I started with brand activation games, moved on to creating virtual simulators, then developed multi-platform educational applications, and now I provide professional support to Unity's largest customers worldwide.
