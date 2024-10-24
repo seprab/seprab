@@ -10,6 +10,8 @@ My name is Sergio Prada, a Sr. Software Engineer at Unity Technologies. I'm work
 
 I speak Spanish and English. I am a proud father, enjoy video games, movies, technology, challenges, outdoor activities, and motorcycling. I plan to continue finding joy in life with my beautiful partner and family.
 
+* * *
+
 **Navigation**
 - [Showcase](./pages/static/showcase.md)
 - [Blog](./pages/static/blog.md)
