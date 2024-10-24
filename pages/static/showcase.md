@@ -1,12 +1,9 @@
 ---
 layout: blog_entry
-title: SepraB's
+title: Showcase
 author: SepraB
-description: Showcase
+description: This is a quick mention to projects where I participated or I am participating. Showing projects where I worked is not an easy task due to non-disclosure agreements or simply no public web reference to it. In case you'd like to better understand my experience visit my LinkedIn profile or visit MY CV.
 ---
-## Showcase
-
-This is a quick mention to projects where I participated or I am participating. Showing projects where I worked is not an easy task due to non-disclosure agreements or simply no public web reference to it. In case you'd like to better understand my experience visit my LinkedIn profile or visit MY CV.
 
 * * *
 #### ML-TRAINED TANKS

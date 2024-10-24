@@ -1,10 +1,11 @@
 ---
 layout: blog_entry
-title: SepraB's
+title: My Timeline
 author: SepraB
-description: Timeline
+description: A brief description of my professional history.
+
 ---
-## My Timeline
+
 * * *
 ### December 2020 - Present
 
