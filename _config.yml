@@ -5,6 +5,6 @@ gem "github-pages", group: :jekyll_plugins
 title: SepraB
 description: Personal website
 show_downloads: false
-google_analytics: 139601038
+google_analytics: G-8FSV2RK3WZ
 github:
   home: https://seprab.com/
