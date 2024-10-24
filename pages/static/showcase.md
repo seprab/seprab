@@ -21,7 +21,6 @@ I worked for [M&S holding group](https://www.msholdinggroup.com) and participate
 * * *
 #### COROVAMP
 This is quick participation with two friends in a Colombian game jam. Worth mentioning that I enjoyed participating in it with them and they did not know how to use Unity.
-![COROVAMP](https://img.itch.zone/aW1hZ2UvNTk4MTgwLzMxNjc2MDYucG5n/347x500/%2BfUSmN.png)
 [Visit COROVAMP](https://chechogordillo.itch.io/corovamp)
 
 * * *
