@@ -12,7 +12,7 @@ description: A brief description of my professional and academic history.
 **Unity Technologies**  
 _Senior Software Engineer, Engine Support_
 
-Provide expert-level technical support for Unity engine core systems including build pipeline, serialization, asset database, performance optimization, and scripting frameworks. Resolve complex technical issues for game development studios and enterprise clients across diverse industries. Contributed to knowledge base articles and internal documentation to improve team efficiency. Recognized for exceptional performance with promotions from Junior to Mid-level and then to Senior Engineer. Consistently ranked among top-performing support engineers, maintaining high customer satisfaction ratings while handling challenging technical cases. Collaborate with engineering teams to escalate and resolve engine issues, serving as a technical bridge between customers and development.
+Provide expert-level technical support for Unity engine core systems including build pipeline, serialization, asset database, performance optimization, and scripting frameworks. Resolve complex technical issues for game development studios and enterprise clients across diverse industries. Contributed to knowledge base articles and internal documentation to improve team efficiency. Recognized for exceptional performance with promotions from Junior to Mid-level and to Senior Engineer. Consistently ranked among top-performing support engineers, maintaining high customer satisfaction ratings while handling challenging technical cases. Chosen to lead a dedicated engineer program with key customers, working closely with them to provide technical guidance. Continuously collaborate with engineering teams to escalate and resolve engine issues, serving as a technical bridge between customers and development.
 * * *
 ### January 2024 - July 2024
 
@@ -48,14 +48,14 @@ Designed and developed a gamified application for CESA - Colegio de Estudios Sup
 **Toro-Labs**  
 _Unity Developer_
 
-Participated in the development of six cross-platform virtual laboratories for CloudLabs, creating interactive simulations for education and professional training. Implemented complex scientific and industrial processes in Unity3D, featuring realistic physics, accurate visualizations, and engaging gamification elements. Optimized performance across web, desktop, and mobile platforms, enabling seamless access to educational content. Projects are actively used by educational institutions and industry partners for hands-on training in STEM fields.
+Participated in the development of six cross-platform virtual laboratories for CloudLabs, creating interactive simulations for educational and professional training. Implemented complex scientific and industrial processes in Unity3D, featuring realistic physics, accurate visualizations, and engaging gamification elements. Optimized performance across web, desktop, and mobile platforms, enabling seamless access to educational content. Projects are actively used by educational institutions and industry partners for hands-on training in STEM fields.
 * * *
 ### October 2017 - March 2020
 
 **M&S Holding Group**  
 _Software Engineer_
 
-Participated in the development on two major simulation projects: TractorSim, an immersive agricultural machinery simulator with realistic physics and environmental conditions for operator training, and CAS (Campaign Artillery Simulator), a sophisticated military training platform. Designed and implemented core systems for vehicle dynamics, terrain interaction, and user interfaces using Unity3D and C#. Collaborated with domain experts to ensure accurate simulation of equipment operation and tactical scenarios. Contributed to additional software projects.
+Participated in the development of two major simulation projects: TractorSim, an immersive agricultural machinery simulator with realistic physics and environmental conditions for operator training, and CAS (Campaign Artillery Simulator), a sophisticated military training platform. Designed and implemented core systems for vehicle dynamics, terrain interaction, and user interfaces using Unity3D and C#. Collaborated with domain experts to ensure accurate simulation of equipment operation and tactical scenarios. Contributed to additional software projects.
 * * *
 ### August 2017 - February 2018
 
