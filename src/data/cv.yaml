@@ -40,10 +40,13 @@ experience:
       game studios and enterprise clients across industries.
     highlights:
       - >-
-        Resolve high-severity escalations for Unity's largest customers across
-        engine subsystems: build pipeline, IL2CPP scripting backend,
-        serialization, Asset Database, memory management, and performance
-        profiling.
+        Resolved 700+ support cases in five years — 85% at escalation
+        priority, primarily for enterprise and premium customers — across
+        engine subsystems including scripting, asset & scene management,
+        build pipeline, IL2CPP, and ECS, on desktop and mobile platforms.
+      - >-
+        Filed and reproduced 70+ engine bug reports from customer projects,
+        feeding verified fixes back into Unity releases.
       - >-
         Contribute C++ and C# fixes directly to the Unity engine source,
         including a GPU memory-leak fix in the Profiler, Asset Database
