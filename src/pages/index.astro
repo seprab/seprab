@@ -3,25 +3,62 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PostCard from '../components/PostCard.astro';
 import IconLink from '../components/IconLink.astro';
+import MiniTimeline from '../components/MiniTimeline.astro';
 import { cv } from '../lib/data';
 
 const posts = (await getCollection('blog', ({ data }) => !data.draft))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 2);
+
+// Live photo: GitHub serves the current avatar at this stable URL, so
+// updating the GitHub profile picture updates the site (and LinkedIn can
+// use the same picture).
+const photo = 'https://github.com/seprab.png';
+
+// schema.org Person — feeds Google's rich results when people search
+// "Sergio Prada" before a meeting or interview.
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: cv.basics.name,
+  jobTitle: 'Senior Software Engineer, Engine Support',
+  worksFor: { '@type': 'Organization', name: 'Unity Technologies' },
+  address: { '@type': 'PostalAddress', addressLocality: 'Montreal', addressCountry: 'CA' },
+  email: `mailto:${cv.basics.email}`,
+  image: photo,
+  url: 'https://seprab.com/',
+  sameAs: cv.basics.links.map((l) => l.url),
+};
 ---
 
-<BaseLayout title="SepraB — Sergio Prada" description="Personal website of Sergio Prada, Senior Software Engineer at Unity Technologies.">
+<BaseLayout
+  title="SepraB — Sergio Prada"
+  description="Personal website of Sergio Prada, Senior Software Engineer at Unity Technologies."
+  schema={schema}
+>
   <section class="hero">
-    <h1>{cv.basics.name}</h1>
-    <p class="tagline">{cv.basics.headline}</p>
-    <div class="links">
-      {cv.basics.links.map((l) => <IconLink href={l.url} label={l.label} />)}
-      <IconLink
-        href={`mailto:${cv.basics.email}?Subject=Hey%20Sergio%20I%20come%20from%20your%20website`}
-        label="Reach out"
-      />
+    <div class="hero-text">
+      <h1>{cv.basics.name}</h1>
+      <p class="tagline">{cv.basics.headline}</p>
+      <p class="positioning">
+        I help the studios behind some of the world's biggest games ship on Unity —
+        resolving high-severity escalations, unblocking launches, and landing fixes
+        in the engine itself.
+      </p>
+      <div class="links">
+        {cv.basics.links.map((l) => <IconLink href={l.url} label={l.label} />)}
+        <IconLink
+          href={`mailto:${cv.basics.email}?Subject=Hey%20Sergio%20I%20come%20from%20your%20website`}
+          label="Reach out"
+        />
+      </div>
     </div>
+    <img class="portrait" src={photo} alt="Sergio Prada" width="180" height="180" />
   </section>
+
+  <p class="credits-strip">
+    Publicly credited in <a href="https://www.mobygames.com/game/210740/cities-skylines-ii/credits/windows-apps/">Cities: Skylines II</a> and <a href="https://www.mobygames.com/game/184776/v-rising/credits/windows/">V Rising</a> · Named Support Engineer for two of the world's top-grossing mobile studios
+  </p>
 
   <section>
     <h2>About me</h2>
@@ -36,6 +73,16 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
       I speak Spanish and English, and I'm currently learning French. I am a proud father,
       enjoy video games, movies, technology, challenges, outdoor activities, and motorcycling.
       I plan to continue finding joy in life with my beautiful partner and family.
+    </p>
+  </section>
+
+  <section>
+    <h2>Career at a glance</h2>
+    <p>{cv.basics.summary}</p>
+    <MiniTimeline />
+    <p>
+      <a class="button" href="/cv/">View the full CV →</a>
+      <a class="button" href="/sergio-prada-cv.pdf" download>Download PDF</a>
     </p>
   </section>
 

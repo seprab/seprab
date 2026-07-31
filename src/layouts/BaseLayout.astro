@@ -11,9 +11,22 @@ interface Props {
   description: string;
   /** Path of the OG image, defaults to the site-wide social card. */
   image?: string;
+  /** Open Graph type: 'article' for blog posts, 'website' otherwise. */
+  type?: 'website' | 'article';
+  /** Publication date, emitted as article:published_time for posts. */
+  publishDate?: Date;
+  /** JSON-LD structured data (schema.org) rendered into <head>. */
+  schema?: Record<string, unknown>;
 }
 
-const { title, description, image = '/images/social_image.jpg' } = Astro.props;
+const {
+  title,
+  description,
+  image = '/images/social_image.jpg',
+  type = 'website',
+  publishDate,
+  schema,
+} = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 ---
 
@@ -33,8 +46,11 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={new URL(image, Astro.site)} />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={type} />
+    {publishDate && <meta property="article:published_time" content={publishDate.toISOString()} />}
     <meta name="twitter:card" content="summary_large_image" />
+
+    {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
 
     <!-- Theme init: runs before paint to avoid a light/dark flash (FOUC).
          Priority: user's saved choice > OS preference. -->

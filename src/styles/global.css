@@ -184,6 +184,53 @@ main.container {
 /* ---- hero (home page) ---- */
 .hero {
   padding: 3.25rem 0 1rem;
+  display: flex;
+  gap: 2.25rem;
+  align-items: center;
+  justify-content: space-between;
+}
+.hero .portrait {
+  flex: 0 0 auto;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent);
+  box-shadow: var(--shadow);
+}
+@media (max-width: 640px) {
+  .hero {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+  .hero .portrait {
+    width: 128px;
+    height: 128px;
+  }
+}
+.hero .positioning {
+  margin: 0.9rem 0 0;
+  font-size: 1.05rem;
+  max-width: 34rem;
+}
+
+/* quiet social-proof line under the hero */
+.credits-strip {
+  margin: 1.5rem 0 0;
+  padding: 0.6rem 1.1rem;
+  background: var(--bg-soft);
+  border-radius: 12px;
+  color: var(--fg-muted);
+  font-size: 0.93rem;
+}
+
+/* compact home-page timeline */
+.timeline.mini > li {
+  margin-bottom: 0.7rem;
+}
+.timeline.mini .role {
+  font-size: 1rem;
 }
 .hero h1 {
   margin: 0 0 0.3rem;

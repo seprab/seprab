@@ -1,0 +1,18 @@
+---
+// Compact, click-free career timeline for the home page: roles only,
+// one line each. The full interactive version lives on /cv/.
+import { cv, formatYm } from '../lib/data';
+---
+
+<ol class="timeline mini">
+  {cv.experience.map((e) => (
+    <li class:list={['work', { current: e.end === null }]}>
+      <span class="when">
+        {formatYm(e.start)} – {e.end === null
+          ? <strong class="present-badge">Present</strong>
+          : formatYm(e.end)}
+      </span><br />
+      <span class="role">{e.role}</span> · {e.company}
+    </li>
+  ))}
+</ol>
