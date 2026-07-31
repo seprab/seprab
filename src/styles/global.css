@@ -261,6 +261,32 @@ main.container {
   overflow: hidden;
 }
 
+/* ---- projects grid (same squared cards, plus cover images) ---- */
+.projects-grid .title {
+  font-family: var(--font-serif);
+  font-size: 1.12rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.projects-grid .desc {
+  margin-top: 0.4rem;
+  -webkit-line-clamp: 5;
+}
+.projects-grid .cover {
+  /* full-bleed strip across the card top (negates the card padding) */
+  width: calc(100% + 2.8rem);
+  margin: -1.15rem -1.4rem 0.85rem;
+  height: 38%;
+  object-fit: cover;
+  border-radius: 14px 14px 0 0;
+  flex: 0 0 auto;
+}
+.projects-grid .has-cover .desc {
+  -webkit-line-clamp: 3;
+}
+
 /* ---- CV tabs ---- */
 .tabs {
   display: flex;
