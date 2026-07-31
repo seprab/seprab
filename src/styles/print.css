@@ -25,11 +25,22 @@
     padding: 0;
   }
 
-  /* keep each timeline / CV entry on one page where possible */
+  /* Keep small blocks (timeline rows, quotes, single bullets) on one page,
+     but let tall CV entries flow across pages — forcing a whole entry to
+     stay together strands its section heading over a blank page. */
   .timeline > li,
-  .cv-entry,
-  .kudos figure {
+  .kudos figure,
+  .cv-entry li {
     break-inside: avoid;
+  }
+
+  /* headings stick to the content that follows them */
+  h2,
+  h3 {
+    break-after: avoid;
+  }
+  .cv-entry h3 + .meta {
+    break-before: avoid;
   }
 
   /* CV page tabs: print every panel, including hidden ones */
