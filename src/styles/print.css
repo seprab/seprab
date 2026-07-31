@@ -32,6 +32,12 @@
     break-inside: avoid;
   }
 
+  /* CV page tabs: print every panel, including hidden ones */
+  .tab-panel,
+  .tab-panel[hidden] {
+    display: block !important;
+  }
+
   /* expand every <details> so nothing is hidden in the PDF */
   .timeline details > *:not(summary) {
     display: block !important;

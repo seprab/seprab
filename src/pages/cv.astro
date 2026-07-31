@@ -5,9 +5,11 @@ import SkillsRadar from '../components/SkillsRadar.astro';
 import KudosList from '../components/KudosList.astro';
 import CvBody from '../components/CvBody.astro';
 
-// Each block lives in its own anchored section; the chip nav below the
-// title lets visitors jump straight to what they care about.
-const sections = [
+// Tabbed layout: only the selected section is visible, so the page never
+// becomes one long scroll. A small inline script (bottom) drives the tabs;
+// print.css force-shows every panel so browser-print still captures all
+// content. Deep links work: /cv/#skills opens the Skills tab.
+const tabs = [
   { id: 'timeline', label: 'Career timeline' },
   { id: 'skills', label: 'Skills' },
   { id: 'colleagues', label: 'What colleagues say' },
@@ -21,28 +23,55 @@ const sections = [
     <a class="button" href="/sergio-prada-cv.pdf" download>Download PDF</a>
   </p>
 
-  <nav class="cv-toc no-print" aria-label="CV sections">
-    {sections.map((s) => <a href={`#${s.id}`}>{s.label}</a>)}
-  </nav>
+  <div class="tabs no-print" role="tablist" aria-label="CV sections">
+    {tabs.map((t, i) => (
+      <button
+        role="tab"
+        id={`tab-${t.id}`}
+        aria-controls={t.id}
+        aria-selected={i === 0 ? 'true' : 'false'}
+      >
+        {t.label}
+      </button>
+    ))}
+  </div>
 
-  <section id="timeline" class="cv-section">
-    <h2>Career timeline</h2>
+  <section id="timeline" class="tab-panel" role="tabpanel" aria-labelledby="tab-timeline">
     <p class="no-print"><small>Click an entry to expand it.</small></p>
     <CareerTimeline />
   </section>
 
-  <section id="skills" class="cv-section">
-    <h2>Skills at a glance</h2>
+  <section id="skills" class="tab-panel" role="tabpanel" aria-labelledby="tab-skills" hidden>
     <SkillsRadar />
   </section>
 
-  <section id="colleagues" class="cv-section">
-    <h2>What colleagues say</h2>
+  <section id="colleagues" class="tab-panel" role="tabpanel" aria-labelledby="tab-colleagues" hidden>
     <KudosList />
   </section>
 
-  <section id="details" class="cv-section">
-    <h2>Full CV</h2>
+  <section id="details" class="tab-panel" role="tabpanel" aria-labelledby="tab-details" hidden>
     <CvBody />
   </section>
+
+  <script>
+    const tabs = [...document.querySelectorAll<HTMLButtonElement>('[role="tab"]')];
+    const panels = [...document.querySelectorAll<HTMLElement>('.tab-panel')];
+
+    function select(id: string) {
+      for (const tab of tabs) tab.setAttribute('aria-selected', String(tab.getAttribute('aria-controls') === id));
+      for (const panel of panels) panel.hidden = panel.id !== id;
+    }
+
+    for (const tab of tabs) {
+      tab.addEventListener('click', () => {
+        const id = tab.getAttribute('aria-controls')!;
+        select(id);
+        history.replaceState(null, '', `#${id}`);
+      });
+    }
+
+    // Deep link: /cv/#skills opens that tab directly.
+    const initial = location.hash.slice(1);
+    if (panels.some((p) => p.id === initial)) select(initial);
+  </script>
 </BaseLayout>

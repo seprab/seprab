@@ -6,7 +6,6 @@ description: >-
   component hiding 91% of the cost.
 pubDate: 2021-06-16
 tags: [unity, editor, serialization, performance, debugging]
-draft: true
 ---
 
 Early in my time at Unity, a studio reported that entering Play Mode had gone

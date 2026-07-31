@@ -16,7 +16,7 @@ const posts = (await getCollection('blog', ({ data }) => import.meta.env.DEV || 
     Things I discover, learn, or struggle with — mostly Unity engine internals, performance,
     and native development.
   </p>
-  <ul class="post-list">
+  <ul class="post-grid">
     {posts.map((post) => <PostCard post={post} />)}
   </ul>
 </BaseLayout>

@@ -1,5 +1,5 @@
 ---
-// One blog post row: title, date, description, tags.
+// One blog card for the post grid: title, date, clamped description, tags.
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
@@ -15,9 +15,9 @@ const date = post.data.pubDate.toISOString().slice(0, 10);
   <div class="meta">
     <time datetime={date}>{date}</time>
   </div>
-  <p>{post.data.description}</p>
+  <p class="desc">{post.data.description}</p>
   {post.data.tags.length > 0 && (
-    <div>
+    <div class="tags">
       {post.data.tags.map((t) => <span class="chip">{t}</span>)}
     </div>
   )}

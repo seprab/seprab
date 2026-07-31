@@ -37,7 +37,7 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
 
   <section>
     <h2>Latest posts</h2>
-    <ul class="post-list">
+    <ul class="post-grid">
       {posts.map((post) => <PostCard post={post} />)}
     </ul>
     <p><a href="/blog/">All posts →</a></p>
