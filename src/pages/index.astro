@@ -2,11 +2,12 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PostCard from '../components/PostCard.astro';
+import IconLink from '../components/IconLink.astro';
 import { cv } from '../lib/data';
 
 const posts = (await getCollection('blog', ({ data }) => !data.draft))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 3);
+  .slice(0, 2);
 ---
 
 <BaseLayout title="SepraB — Sergio Prada" description="Personal website of Sergio Prada, Senior Software Engineer at Unity Technologies.">
@@ -14,8 +15,11 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
     <h1>{cv.basics.name}</h1>
     <p class="tagline">{cv.basics.headline}</p>
     <div class="links">
-      {cv.basics.links.map((l) => <a class="button" href={l.url}>{l.label}</a>)}
-      <a class="button" href={`mailto:${cv.basics.email}?Subject=Hey%20Sergio%20I%20come%20from%20your%20website`}>Reach out</a>
+      {cv.basics.links.map((l) => <IconLink href={l.url} label={l.label} />)}
+      <IconLink
+        href={`mailto:${cv.basics.email}?Subject=Hey%20Sergio%20I%20come%20from%20your%20website`}
+        label="Reach out"
+      />
     </div>
   </section>
 

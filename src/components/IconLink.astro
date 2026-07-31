@@ -1,0 +1,48 @@
+---
+// A .button link with a small inline brand icon chosen from the label.
+// Icons are inline SVG paths (no icon font, no external requests) and
+// inherit the button's text color via fill="currentColor".
+interface Props {
+  href: string;
+  label: string;
+}
+const { href, label } = Astro.props;
+
+const ICONS: Record<string, { viewBox: string; d: string }> = {
+  github: {
+    viewBox: '0 0 16 16',
+    d: 'M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z',
+  },
+  linkedin: {
+    viewBox: '0 0 24 24',
+    d: 'M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.55V9h3.57v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.72C24 .77 23.2 0 22.22 0Z',
+  },
+  x: {
+    viewBox: '0 0 24 24',
+    d: 'M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.41l-5.8-7.58-6.64 7.58H.47l8.6-9.83L0 1.15h7.59l5.24 6.93 6.07-6.93Zm-1.29 19.5h2.04L6.49 3.24H4.3l13.31 17.4Z',
+  },
+  mail: {
+    viewBox: '0 0 24 24',
+    d: 'M1.5 4.5h21A1.5 1.5 0 0 1 24 6v12a1.5 1.5 0 0 1-1.5 1.5h-21A1.5 1.5 0 0 1 0 18V6a1.5 1.5 0 0 1 1.5-1.5Zm10.5 8.13L2.25 6.4v11.35h19.5V6.4L12 12.63ZM3.42 6l8.58 5.5L20.58 6H3.42Z',
+  },
+};
+
+function pick(l: string) {
+  const s = l.toLowerCase();
+  if (s.includes('github')) return ICONS.github;
+  if (s.includes('linkedin')) return ICONS.linkedin;
+  if (s.includes('x') || s.includes('twitter')) return ICONS.x;
+  if (s.includes('reach') || s.includes('mail') || s.includes('contact')) return ICONS.mail;
+  return null;
+}
+const icon = pick(label);
+---
+
+<a class="button" href={href}>
+  {icon && (
+    <svg viewBox={icon.viewBox} aria-hidden="true" fill="currentColor">
+      <path d={icon.d} />
+    </svg>
+  )}
+  {label}
+</a>
