@@ -1,0 +1,26 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+
+// aria-current highlights the section the visitor is in.
+const path = Astro.url.pathname;
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/blog/', label: 'Blog' },
+  { href: '/cv/', label: 'CV' },
+  { href: '/projects/', label: 'Projects' },
+];
+const isCurrent = (href: string) =>
+  href === '/' ? path === '/' : path.startsWith(href);
+---
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="/">SepraB</a>
+    <nav aria-label="Main">
+      {links.map((l) => (
+        <a href={l.href} aria-current={isCurrent(l.href) ? 'page' : undefined}>{l.label}</a>
+      ))}
+      <ThemeToggle />
+    </nav>
+  </div>
+</header>

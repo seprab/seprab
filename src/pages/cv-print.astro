@@ -1,0 +1,35 @@
+---
+// Chrome-less CV used as the source of the downloadable PDF.
+// scripts/generate-cv-pdf.mjs prints this page with Playwright during the
+// CI build. Not linked from anywhere and excluded from search engines.
+import CvBody from '../components/CvBody.astro';
+import '../styles/global.css';
+import '../styles/print.css';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Sergio Prada — CV</title>
+    <style>
+      /* A4-tuned typography on top of global.css */
+      body {
+        font-size: 10.5pt;
+        max-width: 48rem;
+        margin: 0 auto;
+        padding: 1.5rem;
+      }
+      .chip {
+        border: 1px solid var(--border);
+        background: none;
+        color: var(--fg-muted);
+      }
+    </style>
+  </head>
+  <body>
+    <CvBody />
+  </body>
+</html>

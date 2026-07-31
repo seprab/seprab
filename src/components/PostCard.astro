@@ -1,0 +1,23 @@
+---
+// One blog post row: title, date, description, tags.
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+}
+const { post } = Astro.props;
+const date = post.data.pubDate.toISOString().slice(0, 10);
+---
+
+<li class="card">
+  <a href={`/blog/${post.id}/`}><strong>{post.data.title}</strong></a>
+  <div class="meta">
+    <time datetime={date}>{date}</time>
+  </div>
+  <p>{post.data.description}</p>
+  {post.data.tags.length > 0 && (
+    <div>
+      {post.data.tags.map((t) => <span class="chip">{t}</span>)}
+    </div>
+  )}
+</li>

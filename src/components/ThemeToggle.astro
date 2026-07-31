@@ -1,0 +1,18 @@
+<!-- Light/dark switch. The <head> init script (BaseLayout) already applied the
+     saved/OS theme before paint; this button just flips and persists it. -->
+<button class="theme-toggle" aria-label="Toggle color theme">
+  <span class="sun" aria-hidden="true">☀️</span>
+  <span class="moon" aria-hidden="true">🌙</span>
+</button>
+
+<script>
+  document.querySelectorAll('.theme-toggle').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const root = document.documentElement;
+      const dark = root.getAttribute('data-theme') === 'dark';
+      if (dark) root.removeAttribute('data-theme');
+      else root.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', dark ? 'light' : 'dark');
+    });
+  });
+</script>

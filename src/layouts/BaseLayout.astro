@@ -1,0 +1,67 @@
+---
+// Shared page shell: <head> (SEO, analytics, theme), header nav, footer.
+// Every page wraps its content in this layout.
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+import '../styles/print.css';
+
+interface Props {
+  title: string;
+  description: string;
+  /** Path of the OG image, defaults to the site-wide social card. */
+  image?: string;
+}
+
+const { title, description, image = '/images/social_image.jpg' } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="alternate" type="application/rss+xml" title="SepraB's blog" href={new URL('rss.xml', Astro.site)} />
+    <meta name="theme-color" content="#157878" />
+
+    <!-- Open Graph / social cards -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL(image, Astro.site)} />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Theme init: runs before paint to avoid a light/dark flash (FOUC).
+         Priority: user's saved choice > OS preference. -->
+    <script is:inline>
+      (function () {
+        const saved = localStorage.getItem('theme');
+        const dark = saved ? saved === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+        if (dark) document.documentElement.setAttribute('data-theme', 'dark');
+      })();
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-8FSV2RK3WZ"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-8FSV2RK3WZ');
+    </script>
+  </head>
+  <body>
+    <Header />
+    <main class="container">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

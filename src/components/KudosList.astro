@@ -1,0 +1,16 @@
+---
+// Anonymized quotes from colleagues/customers, from src/data/kudos.yaml.
+import { kudos } from '../lib/data';
+---
+
+<div class="kudos">
+  {kudos.map((k) => (
+    <figure>
+      <blockquote>“{k.quote}”</blockquote>
+      <figcaption>
+        — {k.attribution}{k.year ? ` (${k.year})` : ''}
+        {k.context && <><br /><small>{k.context}</small></>}
+      </figcaption>
+    </figure>
+  ))}
+</div>

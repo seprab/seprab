@@ -1,0 +1,91 @@
+---
+// Skill radar chart rendered as a static SVG at build time — no chart
+// library, no client JS. One axis per skill category, radius = mean level
+// (1–5) of the skills in that category. Colors come from the CSS custom
+// properties so the chart follows the light/dark theme.
+import { cv, skillCategoryAverages } from '../lib/data';
+
+const CATEGORY_LABELS: Record<string, string> = {
+  engine: 'Game engines',
+  language: 'Languages',
+  systems: 'Systems & perf',
+  tools: 'Tooling & CI',
+  data: 'Data',
+};
+
+const size = 300;
+const center = size / 2;
+const radius = size / 2 - 46; // leave room for labels
+const maxLevel = 5;
+
+const averages = skillCategoryAverages();
+const n = averages.length;
+
+// Vertex on axis i at a given level (0..maxLevel). Axis 0 points up.
+function point(i: number, level: number): [number, number] {
+  const angle = (Math.PI * 2 * i) / n - Math.PI / 2;
+  const r = (radius * level) / maxLevel;
+  return [center + r * Math.cos(angle), center + r * Math.sin(angle)];
+}
+
+const rings = [1, 2, 3, 4, 5].map((level) =>
+  averages.map((_, i) => point(i, level).join(',')).join(' '),
+);
+const valuePolygon = averages.map((a, i) => point(i, a.value).join(',')).join(' ');
+const labels = averages.map((a, i) => {
+  const [x, y] = point(i, maxLevel + 1.15); // just outside the outer ring
+  return { x, y, text: CATEGORY_LABELS[a.category] ?? a.category };
+});
+
+const description = averages
+  .map((a) => `${CATEGORY_LABELS[a.category] ?? a.category}: ${a.value.toFixed(1)} of 5`)
+  .join(', ');
+---
+
+<div class="skills-block">
+  <svg
+    width={size}
+    height={size}
+    viewBox={`0 0 ${size} ${size}`}
+    role="img"
+    aria-label={`Skill radar chart. ${description}`}
+  >
+    <title>Skill assessment by category</title>
+    {rings.map((points) => (
+      <polygon points={points} fill="none" stroke="var(--border)" stroke-width="1" />
+    ))}
+    {averages.map((_, i) => {
+      const [x, y] = point(i, maxLevel);
+      return <line x1={center} y1={center} x2={x} y2={y} stroke="var(--border)" stroke-width="1" />;
+    })}
+    <polygon
+      points={valuePolygon}
+      fill="var(--accent)"
+      fill-opacity="0.25"
+      stroke="var(--accent)"
+      stroke-width="2"
+    />
+    {labels.map((l) => (
+      <text
+        x={l.x}
+        y={l.y}
+        text-anchor="middle"
+        dominant-baseline="middle"
+        font-size="12"
+        fill="var(--fg-muted)"
+      >
+        {l.text}
+      </text>
+    ))}
+  </svg>
+
+  <!-- Accessible / print-safe representation of the same data -->
+  <ul class="skills-list">
+    {cv.skills.map((s) => (
+      <li>
+        <span class="bar" aria-hidden="true">{'●'.repeat(s.level)}{'○'.repeat(5 - s.level)}</span>
+        {' '}{s.name}
+      </li>
+    ))}
+  </ul>
+</div>

@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CareerTimeline from '../components/CareerTimeline.astro';
+import SkillsRadar from '../components/SkillsRadar.astro';
+import KudosList from '../components/KudosList.astro';
+import CvBody from '../components/CvBody.astro';
+---
+
+<BaseLayout title="CV — Sergio Prada" description="Professional experience, skills, and education of Sergio Prada, Senior Software Engineer at Unity Technologies.">
+  <h1>Curriculum Vitae</h1>
+  <p class="no-print">
+    <a class="button" href="/sergio-prada-cv.pdf" download>Download PDF</a>
+  </p>
+
+  <h2>Career timeline</h2>
+  <p class="no-print"><small>Click an entry to expand it.</small></p>
+  <CareerTimeline />
+
+  <h2>Skills at a glance</h2>
+  <SkillsRadar />
+
+  <h2>What colleagues say</h2>
+  <KudosList />
+
+  <hr />
+  <CvBody />
+</BaseLayout>

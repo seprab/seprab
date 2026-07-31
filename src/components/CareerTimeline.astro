@@ -1,0 +1,37 @@
+---
+// Interactive career timeline: experience + education merged, newest first.
+// Each entry is a native <details> element — expandable with zero JavaScript.
+// print.css force-expands them for the PDF.
+import { timelineEntries, formatYm } from '../lib/data';
+
+interface Props {
+  /** Render every entry expanded (used by the print/PDF page). */
+  expanded?: boolean;
+}
+const { expanded = false } = Astro.props;
+const entries = timelineEntries();
+---
+
+<ol class="timeline">
+  {entries.map((e) => (
+    <li class={e.kind === 'work' ? 'work' : 'edu'}>
+      <details open={expanded || undefined}>
+        <summary>
+          <span class="when">{formatYm(e.start)} – {formatYm(e.end)}</span><br />
+          <span class="role">{e.title}</span> · {e.place}
+        </summary>
+        {e.summary && <p>{e.summary}</p>}
+        {e.highlights.length > 0 && (
+          <ul>
+            {e.highlights.map((h) => <li>{h}</li>)}
+          </ul>
+        )}
+        {e.tech.length > 0 && (
+          <div>
+            {e.tech.map((t) => <span class="chip">{t}</span>)}
+          </div>
+        )}
+      </details>
+    </li>
+  ))}
+</ol>

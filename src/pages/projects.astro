@@ -1,0 +1,27 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { projects } from '../lib/data';
+---
+
+<BaseLayout title="Projects — SepraB" description="Projects and shipped titles Sergio Prada worked on: simulators, VR, educational apps, and Unity engine support credits.">
+  <h1>Projects & Credits</h1>
+  <p>
+    A selection of projects I participated in. Much of my work is covered by NDAs or has no
+    public reference, so this is the visible part — my
+    <a href="https://www.linkedin.com/in/seprab/">LinkedIn</a> and <a href="/cv/">CV</a> tell
+    the fuller story.
+  </p>
+
+  {projects.map((p) => (
+    <div class="card">
+      <h3>{p.title}</h3>
+      <p>{p.description}</p>
+      {p.image && <img src={p.image} alt={p.title} loading="lazy" />}
+      <p>
+        {p.video && <a href={p.video}>Watch video</a>}
+        {p.video && p.link && ' · '}
+        {p.link && <a href={p.link}>Learn more</a>}
+      </p>
+    </div>
+  ))}
+</BaseLayout>

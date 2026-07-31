@@ -1,0 +1,206 @@
+# ============================================================================
+# Single source of truth for the CV. Drives: /cv/ page, career timeline,
+# skills radar, and the downloadable PDF (regenerated on every deploy).
+# Validated against src/lib/schemas.ts at build time — a malformed edit
+# fails `npm run build` instead of shipping.
+#
+# Dates: 'YYYY-MM', or plain 'YYYY' when the month isn't meaningful.
+# end: null means "Present".
+# ============================================================================
+
+basics:
+  name: Sergio Prada
+  headline: Senior Software Engineer @ Unity Technologies — Engine Support
+  location: Colombia (Remote)
+  email: sergioeprada@hotmail.com
+  summary: >-
+    Senior Software Engineer with 9+ years building and supporting real-time 3D
+    software: game engine internals, simulators, VR, and multi-platform
+    applications. Deep expertise in Unity engine architecture, C++ and C#,
+    performance profiling and optimization, memory management, and build
+    pipelines / CI-CD. Trusted technical escalation point for Unity's largest
+    game studios and enterprise customers worldwide, with fixes contributed
+    directly to the Unity engine source and credits in shipped AAA titles.
+  links:
+    - label: GitHub
+      url: https://github.com/seprab
+    - label: LinkedIn
+      url: https://www.linkedin.com/in/seprab/
+    - label: X (Twitter)
+      url: https://twitter.com/PinguinoSepraB
+
+experience:
+  - company: Unity Technologies
+    role: Senior Software Engineer, Engine Support
+    start: 2020-12
+    end: null
+    location: Remote
+    summary: >-
+      Expert-level technical support for Unity engine core systems, serving
+      game studios and enterprise clients across industries.
+    highlights:
+      - >-
+        Resolve high-severity escalations for Unity's largest customers across
+        engine subsystems: build pipeline, IL2CPP scripting backend,
+        serialization, Asset Database, memory management, and performance
+        profiling.
+      - >-
+        Contribute C++ and C# fixes directly to the Unity engine source,
+        including a GPU memory-leak fix in the Profiler, Asset Database
+        GUID-search tooling, and configurable worker-thread counts for
+        containerized CI environments.
+      - >-
+        Root-caused an eight-year-old engine race condition (ARM instruction
+        reordering) that froze roughly 1.2 million sessions per month for a
+        top-grossing mobile title — engine fix landed eight weeks after the
+        first report.
+      - >-
+        Delivered an emergency workaround and fast engine patch for a AAA
+        studio's launch-blocking crash in a containerized build environment,
+        days before their soft launch.
+      - >-
+        Selected as Named Support Engineer for two of the world's
+        top-grossing mobile game studios, serving as the technical bridge
+        between customers and engine R&D.
+      - >-
+        Represented the Engine Support team in customer meetings at GDC 2025.
+      - >-
+        Promoted twice (Junior → Mid-level → Senior) while consistently
+        ranking among the top-performing support engineers and maintaining
+        high customer-satisfaction ratings.
+      - >-
+        Credited in shipped titles Cities: Skylines II and V Rising for Unity
+        engine and console support.
+      - >-
+        Author knowledge-base articles and internal documentation that improve
+        team efficiency and case resolution times.
+    tech: [C++, C#, Unity Engine, IL2CPP, Profiling, Build Systems, Docker, CI/CD, Git]
+
+  - company: CESA (Colegio de Estudios Superiores de Administración)
+    role: Software Developer
+    start: 2020-07
+    end: 2020-10
+    location: Bogotá, Colombia
+    highlights:
+      - >-
+        Designed and developed a gamified desktop application to boost employee
+        engagement and organizational culture, with interactive challenges,
+        achievement systems, and social features.
+    tech: [Unity3D, C#]
+
+  - company: Toro-Labs
+    role: Unity Developer
+    start: 2019-05
+    end: 2020-08
+    location: Colombia
+    highlights:
+      - >-
+        Developed six cross-platform virtual laboratories for CloudLabs —
+        interactive STEM simulations used by educational institutions and
+        industry partners for hands-on training.
+      - >-
+        Implemented realistic physics and accurate scientific/industrial
+        process visualization; optimized performance across web, desktop, and
+        mobile targets.
+    tech: [Unity3D, C#, WebGL, Mobile]
+
+  - company: M&S Holding Group
+    role: Software Engineer
+    start: 2017-10
+    end: 2020-03
+    location: Colombia
+    highlights:
+      - >-
+        Core developer on TractorSim®, an agricultural machinery training
+        simulator: vehicle dynamics and physics, custom input systems, D-Box
+        motion platform integration, SQL databases, graphics, and course
+        design.
+      - >-
+        Built two versions of CAS (Campaign Artillery Simulator), a military
+        training platform integrating VBS3 and Unity; collaborated with domain
+        experts to ensure accurate equipment and tactical simulation.
+    tech: [Unity3D, C#, VBS3, SQL, Physics Simulation]
+
+  - company: 3dementes
+    role: XR Developer
+    start: 2017-08
+    end: 2018-02
+    location: Colombia
+    highlights:
+      - >-
+        Developed immersive VR brand-activation experiences for major Colombian
+        brands including Bimbo, Homecenter, and Avianca.
+      - >-
+        Created interactive architectural visualizations in Unreal Engine with
+        realistic rendering and user navigation.
+    tech: [Unity3D, Unreal Engine, VR, C#]
+
+education:
+  - institution: Udacity
+    program: C++ Nanodegree
+    kind: certification
+    start: 2024-01
+    end: 2024-07
+    details: >-
+      Modern C++: memory management, OOP, concurrency, and system design.
+      Projects included an A* route planner, a Linux process monitor, a
+      multithreaded traffic simulation, and a memory-managed chatbot.
+  - institution: edX — UC San Diego
+    program: 'CSE167x: Computer Graphics'
+    kind: course
+    start: 2023-01
+    end: 2023-03
+    details: >-
+      3D transformations, viewing/projection, shading, and rendering,
+      implemented in C++ and OpenGL.
+  - institution: Ironhack
+    program: Data Analytics Bootcamp (full-time)
+    kind: course
+    start: 2020-10
+    end: 2020-12
+    details: >-
+      Awarded "The Sims & Ironhack" competitive scholarship. Python, SQL,
+      Tableau/Power BI, statistical analysis, and applied machine learning.
+  - institution: University of Ontario Institute of Technology
+    program: Game Development & Entrepreneurship — ELAP Scholarship
+    kind: course
+    start: 2017-01
+    end: 2017-04
+    details: >-
+      Emerging Leaders in the Americas Program scholarship. Capstone: a
+      cardiac-auscultation VR training app for medical students (Unity3D,
+      mobile VR).
+  - institution: Unity Technologies
+    program: Unity Certified Developer
+    kind: certification
+    start: 2016-11
+    end: 2017-01
+    details: >-
+      Government-sponsored professional certification covering scripting, UI,
+      physics, animation, asset management, and cross-platform deployment.
+  - institution: Universidad Militar Nueva Granada
+    program: Multimedia Engineering (BSc)
+    kind: degree
+    start: '2012'
+    end: '2017'
+    details: >-
+      Computer science, digital media, and interactive technologies, with
+      project-based, interdisciplinary work.
+
+skills:
+  - { name: Unity Engine & Editor internals, level: 5, category: engine }
+  - { name: 'C# / .NET', level: 5, category: language }
+  - { name: Modern C++, level: 4, category: language }
+  - { name: Performance profiling & optimization, level: 5, category: systems }
+  - { name: Memory management & crash analysis, level: 4, category: systems }
+  - { name: Build pipeline & IL2CPP, level: 4, category: systems }
+  - { name: Docker & containerized builds, level: 4, category: tools }
+  - { name: CI/CD & automation, level: 4, category: tools }
+  - { name: Git & code review, level: 4, category: tools }
+  - { name: VR/XR development, level: 4, category: engine }
+  - { name: Computer graphics (OpenGL), level: 3, category: engine }
+  - { name: Data analytics (Python, SQL, Tableau), level: 3, category: data }
+
+languages:
+  - { name: Spanish, level: Native }
+  - { name: English, level: Full professional proficiency }

@@ -1,0 +1,59 @@
+# Entries for the /projects/ page, ordered by `order` (ascending).
+
+- title: 'Cities: Skylines II — Engine & Console Support (credited)'
+  description: >-
+    Publicly credited in the shipping title for Unity engine and console
+    support work with Colossal Order / Paradox Interactive.
+  link: https://www.mobygames.com/game/210740/cities-skylines-ii/credits/windows-apps/
+  order: 1
+
+- title: V Rising — Engine Support (credited)
+  description: >-
+    Publicly credited in Stunlock Studios' V Rising for Unity engine support
+    work.
+  link: https://www.mobygames.com/game/184776/v-rising/credits/windows/
+  order: 2
+
+- title: ML-Trained Tanks
+  description: >-
+    Machine-learning-powered AI simulating a tank battle — final project of
+    the Ironhack data analytics bootcamp.
+  image: https://i3.ytimg.com/vi/fmvXJ-wFV9s/maxresdefault.jpg
+  video: https://www.youtube.com/watch?v=fmvXJ-wFV9s
+  order: 3
+
+- title: TractorSim®
+  description: >-
+    Agricultural machinery training simulator. I worked on almost everything:
+    physics, mechanics, custom input system, D-Box motion integration, SQL
+    databases, graphics, sound, and course design.
+  video: https://youtu.be/mI9MLGqo7BE
+  order: 4
+
+- title: CAS — Campaign Artillery Simulator
+  description: >-
+    Two versions of a military artillery training simulator for M&S Holding
+    Group, integrating solutions based on VBS3 and Unity.
+  link: https://www.msholdinggroup.com
+  order: 5
+
+- title: Virtual Labs (CloudLabs)
+  description: >-
+    Migrated and developed virtual STEM laboratories with ToroLabs, used by
+    educational institutions for hands-on training.
+  video: https://www.youtube.com/watch?v=azHSOMcP9iE
+  order: 6
+
+- title: COROVAMP
+  description: >-
+    A Colombian game-jam entry built with two friends who had never used
+    Unity — I enjoyed every minute of it.
+  link: https://chechogordillo.itch.io/corovamp
+  order: 7
+
+- title: Room Scale VR
+  description: >-
+    Exploration project for pre-visualizing, navigating, and interacting with
+    virtual locations in room-scale VR.
+  video: https://youtu.be/mI9MLGqo7BE
+  order: 8

@@ -1,0 +1,31 @@
+---
+// Individual blog post pages.
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  // Drafts are visible during `npm run dev` but never built in production.
+  const posts = await getCollection(
+    'blog',
+    ({ data }) => import.meta.env.DEV || !data.draft,
+  );
+  return posts.map((post) => ({ params: { id: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const date = post.data.pubDate.toISOString().slice(0, 10);
+---
+
+<BaseLayout title={`${post.data.title} — SepraB`} description={post.data.description}>
+  <article>
+    <h1>{post.data.title}</h1>
+    <p class="meta">
+      <time datetime={date}>{date}</time>
+      {post.data.tags.map((t) => <span class="chip">{t}</span>)}
+    </p>
+    <Content />
+  </article>
+  <hr />
+  <p><a href="/blog/">← All posts</a></p>
+</BaseLayout>

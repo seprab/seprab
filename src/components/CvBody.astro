@@ -1,0 +1,73 @@
+---
+// The full CV content shared by /cv/ (web) and /cv-print/ (PDF source).
+// Everything renders from src/data/cv.yaml — edit the data, not this markup.
+import { cv, formatYm } from '../lib/data';
+---
+
+<section class="cv-entry">
+  <h2>{cv.basics.name}</h2>
+  <p>
+    <strong>{cv.basics.headline}</strong><br />
+    {cv.basics.location} · <a href={`mailto:${cv.basics.email}`}>{cv.basics.email}</a>
+  </p>
+  <p>{cv.basics.summary}</p>
+  <p>
+    {cv.basics.links.map((l, i) => (
+      <>
+        {i > 0 && ' · '}
+        <a href={l.url}>{l.label}</a>
+      </>
+    ))}
+  </p>
+</section>
+
+<section>
+  <h2>Experience</h2>
+  {cv.experience.map((e) => (
+    <div class="cv-entry">
+      <h3>{e.role} — {e.company}</h3>
+      <p class="meta">
+        {formatYm(e.start)} – {formatYm(e.end)}{e.location ? ` · ${e.location}` : ''}
+      </p>
+      {e.summary && <p>{e.summary}</p>}
+      <ul>
+        {e.highlights.map((h) => <li>{h}</li>)}
+      </ul>
+      {e.tech.length > 0 && (
+        <div>
+          {e.tech.map((t) => <span class="chip">{t}</span>)}
+        </div>
+      )}
+    </div>
+  ))}
+</section>
+
+<section>
+  <h2>Education & Certifications</h2>
+  {cv.education.map((e) => (
+    <div class="cv-entry">
+      <h3>{e.program}</h3>
+      <p class="meta">{e.institution} · {formatYm(e.start)} – {formatYm(e.end)}</p>
+      {e.details && <p>{e.details}</p>}
+    </div>
+  ))}
+</section>
+
+<section>
+  <h2>Skills</h2>
+  <ul class="skills-list">
+    {cv.skills.map((s) => (
+      <li>
+        <span class="bar" aria-hidden="true">{'●'.repeat(s.level)}{'○'.repeat(5 - s.level)}</span>
+        {' '}{s.name}
+      </li>
+    ))}
+  </ul>
+</section>
+
+<section>
+  <h2>Languages</h2>
+  <ul>
+    {cv.languages.map((l) => <li>{l.name} — {l.level}</li>)}
+  </ul>
+</section>

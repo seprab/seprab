@@ -1,0 +1,369 @@
+/* ==========================================================================
+   seprab.com global stylesheet
+   Plain CSS, no framework. Colors live in custom properties so light/dark
+   theming is just swapping the values under [data-theme='dark'].
+   The accent teal (#157878) is inherited from the old Cayman theme for
+   visual continuity.
+   ========================================================================== */
+
+:root {
+  --bg: #ffffff;
+  --bg-soft: #f4f6f6;        /* cards, code blocks, chips */
+  --fg: #1b1f23;             /* body text */
+  --fg-muted: #57606a;       /* secondary text, dates */
+  --accent: #157878;         /* links, highlights, timeline dots */
+  --accent-soft: #d7ecec;    /* subtle accent backgrounds */
+  --border: #d8dee4;
+  --shadow: 0 1px 3px rgb(0 0 0 / 0.08);
+}
+
+[data-theme='dark'] {
+  --bg: #0f1417;
+  --bg-soft: #1a2126;
+  --fg: #e6edf3;
+  --fg-muted: #9baab8;
+  --accent: #3ecfcf;
+  --accent-soft: #123939;
+  --border: #2d3844;
+  --shadow: 0 1px 3px rgb(0 0 0 / 0.4);
+}
+
+/* ---- reset-ish ---- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light;
+  scroll-behavior: smooth;
+}
+[data-theme='dark'] {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+h1, h2, h3, h4 {
+  line-height: 1.25;
+  margin: 1.6em 0 0.5em;
+}
+h1 { font-size: 2rem; margin-top: 0.5em; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.2rem; }
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.9em;
+  background: var(--bg-soft);
+  padding: 0.15em 0.35em;
+  border-radius: 4px;
+}
+
+/* Shiki-highlighted blocks from markdown posts */
+pre {
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  border: 1px solid var(--border);
+}
+pre code {
+  background: none;
+  padding: 0;
+}
+
+blockquote {
+  margin: 1rem 0;
+  padding: 0.25rem 1.25rem;
+  border-left: 4px solid var(--accent);
+  background: var(--bg-soft);
+  border-radius: 0 8px 8px 0;
+  color: var(--fg-muted);
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2.5rem 0;
+}
+
+/* ---- page shell ---- */
+.container {
+  max-width: 46rem; /* ~70ch: comfortable reading measure */
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+main.container {
+  min-height: 70vh;
+  padding-bottom: 4rem;
+}
+
+/* ---- header / nav ---- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+
+.site-header .inner {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 0.6rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.site-header .brand {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--fg);
+}
+.site-header .brand:hover {
+  text-decoration: none;
+  color: var(--accent);
+}
+
+.site-header nav {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.site-header nav a {
+  color: var(--fg-muted);
+  font-size: 0.95rem;
+}
+.site-header nav a[aria-current='page'] {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ---- hero (home page) ---- */
+.hero {
+  padding: 3rem 0 1rem;
+}
+.hero h1 {
+  margin: 0 0 0.25rem;
+}
+.hero .tagline {
+  color: var(--fg-muted);
+  font-size: 1.15rem;
+  margin: 0;
+}
+.hero .links {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+/* ---- generic card / list ---- */
+.card {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.1rem 1.3rem;
+  margin: 1rem 0;
+  background: var(--bg);
+  box-shadow: var(--shadow);
+}
+
+.post-list {
+  list-style: none;
+  padding: 0;
+}
+.post-list .meta {
+  color: var(--fg-muted);
+  font-size: 0.9rem;
+}
+
+.chip {
+  display: inline-block;
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-radius: 999px;
+  padding: 0.05rem 0.65rem;
+  font-size: 0.8rem;
+  margin-right: 0.35rem;
+}
+
+.button {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--bg);
+  font-weight: 600;
+  padding: 0.5rem 1.1rem;
+  border-radius: 8px;
+  border: none;
+}
+.button:hover {
+  text-decoration: none;
+  filter: brightness(1.08);
+}
+
+/* ---- career timeline ---- */
+.timeline {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+  position: relative;
+}
+.timeline::before {
+  /* the vertical line */
+  content: '';
+  position: absolute;
+  left: 0.45rem;
+  top: 0.4rem;
+  bottom: 0.4rem;
+  width: 2px;
+  background: var(--border);
+}
+.timeline > li {
+  position: relative;
+  padding-left: 2.2rem;
+  margin-bottom: 1.4rem;
+}
+.timeline > li::before {
+  /* the dot */
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.45rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 3px solid var(--bg);
+}
+.timeline > li.edu::before {
+  background: var(--fg-muted);
+}
+.timeline details summary {
+  cursor: pointer;
+  list-style: none;
+}
+.timeline details summary::-webkit-details-marker {
+  display: none;
+}
+.timeline details summary::after {
+  content: ' ▸';
+  color: var(--fg-muted);
+}
+.timeline details[open] summary::after {
+  content: ' ▾';
+}
+.timeline .when {
+  color: var(--fg-muted);
+  font-size: 0.9rem;
+}
+.timeline .role {
+  font-weight: 650;
+}
+.timeline ul {
+  margin: 0.5rem 0 0;
+  padding-left: 1.2rem;
+}
+
+/* ---- skills radar ---- */
+.skills-block {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.skills-block svg {
+  flex: 0 0 auto;
+}
+.skills-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.95rem;
+}
+.skills-list .bar {
+  display: inline-block;
+  letter-spacing: 2px;
+  color: var(--accent);
+}
+
+/* ---- kudos ---- */
+.kudos figure {
+  margin: 1.25rem 0;
+  padding: 1rem 1.25rem;
+  border-left: 4px solid var(--accent);
+  background: var(--bg-soft);
+  border-radius: 0 8px 8px 0;
+}
+.kudos blockquote {
+  all: unset;
+  display: block;
+  font-style: italic;
+}
+.kudos figcaption {
+  margin-top: 0.5rem;
+  color: var(--fg-muted);
+  font-size: 0.9rem;
+}
+
+/* ---- footer ---- */
+.site-footer {
+  border-top: 1px solid var(--border);
+  color: var(--fg-muted);
+  font-size: 0.9rem;
+}
+.site-footer .inner {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* ---- theme toggle ---- */
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--fg-muted);
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  font-size: 1rem;
+  line-height: 1;
+}
+.theme-toggle:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* the toggle shows either the sun or the moon depending on theme */
+[data-theme='dark'] .theme-toggle .sun { display: none; }
+:root:not([data-theme='dark']) .theme-toggle .moon { display: none; }

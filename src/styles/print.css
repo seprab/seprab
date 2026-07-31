@@ -1,0 +1,42 @@
+/* Print / PDF styles. Applied on every page via BaseLayout, and the
+   /cv-print/ page relies on these when Playwright renders the CV PDF in CI
+   (scripts/generate-cv-pdf.mjs). */
+@media print {
+  .site-header,
+  .site-footer,
+  .theme-toggle,
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+    font-size: 10.5pt;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .container {
+    max-width: none;
+    padding: 0;
+  }
+
+  /* keep each timeline / CV entry on one page where possible */
+  .timeline > li,
+  .cv-entry,
+  .kudos figure {
+    break-inside: avoid;
+  }
+
+  /* expand every <details> so nothing is hidden in the PDF */
+  .timeline details > *:not(summary) {
+    display: block !important;
+  }
+  .timeline details summary::after {
+    content: '';
+  }
+}

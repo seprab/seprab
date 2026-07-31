@@ -1,0 +1,44 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostCard from '../components/PostCard.astro';
+import { cv } from '../lib/data';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+---
+
+<BaseLayout title="SepraB — Sergio Prada" description="Personal website of Sergio Prada, Senior Software Engineer at Unity Technologies.">
+  <section class="hero">
+    <h1>{cv.basics.name}</h1>
+    <p class="tagline">{cv.basics.headline}</p>
+    <div class="links">
+      {cv.basics.links.map((l) => <a class="button" href={l.url}>{l.label}</a>)}
+      <a class="button" href={`mailto:${cv.basics.email}?Subject=Hey%20Sergio%20I%20come%20from%20your%20website`}>Reach out</a>
+    </div>
+  </section>
+
+  <section>
+    <h2>About me</h2>
+    <p>
+      My name is Sergio Prada, a Sr. Software Engineer at Unity Technologies. I'm working and
+      living in Colombia. My experience spans various domains: I started with brand activation
+      games, moved on to creating virtual simulators, then developed multi-platform educational
+      applications, and now I provide professional support to Unity's largest customers worldwide.
+    </p>
+    <p>
+      I speak Spanish and English. I am a proud father, enjoy video games, movies, technology,
+      challenges, outdoor activities, and motorcycling. I plan to continue finding joy in life
+      with my beautiful partner and family.
+    </p>
+  </section>
+
+  <section>
+    <h2>Latest posts</h2>
+    <ul class="post-list">
+      {posts.map((post) => <PostCard post={post} />)}
+    </ul>
+    <p><a href="/blog/">All posts →</a></p>
+  </section>
+</BaseLayout>

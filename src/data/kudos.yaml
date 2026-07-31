@@ -1,0 +1,54 @@
+# Anonymized recognition quotes shown on the CV page ("What colleagues say").
+# Policy: never name customers, ticket numbers, or internal systems. Sergio
+# reviews and approves every entry before it ships — delete any entry you
+# don't want public and redeploy.
+
+- quote: >-
+    Sergio really went above and beyond, worked extra hours and provided very
+    detailed, quality answers regularly to the customer. The customer was
+    facing random crashes in a containerized environment eight days before
+    their soft launch — we provided an immediate workaround, a very fast
+    patch from Sergio, and a fix to the engine.
+  attribution: Senior Developer Relations Manager, Unity
+  year: 2024
+  context: Launch-blocking escalation for a AAA publisher
+
+- quote: >-
+    Thanks so much for being on top of this ticket. Best collaboration ever.
+  attribution: Technical Director at a AAA publisher
+  year: 2024
+
+- quote: >-
+    Incredible work! This is an amazing success story and testament to your
+    abilities and willingness to go deep into the investigation for both of
+    these customers.
+  attribution: Director, Engine Support Success, Unity
+  year: 2026
+  context: >-
+    Root-causing an eight-year-old engine race condition that froze millions
+    of sessions per month for two of the world's top-grossing mobile games
+
+- quote: >-
+    Sergio did a fantastic job of representing the Engine Support team,
+    getting into the technical details and truly showing his passion for
+    Unity to all of our customers.
+  attribution: Director, Partner Engineering, Unity
+  year: 2025
+  context: GDC 2025 customer meetings
+
+- quote: >-
+    Outstanding job — nothing but fantastic feedback from the studio. This
+    ticket was crucial, as it was preventing the team from delivering a new
+    build to investors. They managed to deliver on time, which was vital for
+    securing ongoing funding.
+  attribution: Senior Developer Relations Manager, Unity
+  year: 2024
+  context: Urgent networking escalation for an online-world studio
+
+- quote: >-
+    Amazing work researching their issue and systematically going through
+    the possibilities — he was even off ill while working through the
+    ticket, but because of the urgency of the request, pushed on through.
+  attribution: Senior Partner Relations Manager, Unity
+  year: 2023
+  context: Urgent escalation for a global engineering & technology company
