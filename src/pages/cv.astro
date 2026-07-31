@@ -4,6 +4,15 @@ import CareerTimeline from '../components/CareerTimeline.astro';
 import SkillsRadar from '../components/SkillsRadar.astro';
 import KudosList from '../components/KudosList.astro';
 import CvBody from '../components/CvBody.astro';
+
+// Each block lives in its own anchored section; the chip nav below the
+// title lets visitors jump straight to what they care about.
+const sections = [
+  { id: 'timeline', label: 'Career timeline' },
+  { id: 'skills', label: 'Skills' },
+  { id: 'colleagues', label: 'What colleagues say' },
+  { id: 'details', label: 'Full CV' },
+];
 ---
 
 <BaseLayout title="CV — Sergio Prada" description="Professional experience, skills, and education of Sergio Prada, Senior Software Engineer at Unity Technologies.">
@@ -12,16 +21,28 @@ import CvBody from '../components/CvBody.astro';
     <a class="button" href="/sergio-prada-cv.pdf" download>Download PDF</a>
   </p>
 
-  <h2>Career timeline</h2>
-  <p class="no-print"><small>Click an entry to expand it.</small></p>
-  <CareerTimeline />
+  <nav class="cv-toc no-print" aria-label="CV sections">
+    {sections.map((s) => <a href={`#${s.id}`}>{s.label}</a>)}
+  </nav>
 
-  <h2>Skills at a glance</h2>
-  <SkillsRadar />
+  <section id="timeline" class="cv-section">
+    <h2>Career timeline</h2>
+    <p class="no-print"><small>Click an entry to expand it.</small></p>
+    <CareerTimeline />
+  </section>
 
-  <h2>What colleagues say</h2>
-  <KudosList />
+  <section id="skills" class="cv-section">
+    <h2>Skills at a glance</h2>
+    <SkillsRadar />
+  </section>
 
-  <hr />
-  <CvBody />
+  <section id="colleagues" class="cv-section">
+    <h2>What colleagues say</h2>
+    <KudosList />
+  </section>
+
+  <section id="details" class="cv-section">
+    <h2>Full CV</h2>
+    <CvBody />
+  </section>
 </BaseLayout>

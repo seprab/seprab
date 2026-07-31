@@ -3,9 +3,8 @@ title: "Unfreezing millions: hunting an 8-year-old race condition"
 description: >-
   How a mobile game freeze that had been shipping for eight years was finally
   root-caused: a race condition hidden by ARM instruction reordering.
-pubDate: 2026-07-31
+pubDate: 2026-03-24
 tags: [unity, debugging, concurrency, mobile]
-draft: true
 ---
 
 For years, players of some of the world's biggest mobile games occasionally hit a

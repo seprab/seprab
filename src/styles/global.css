@@ -2,30 +2,35 @@
    seprab.com global stylesheet
    Plain CSS, no framework. Colors live in custom properties so light/dark
    theming is just swapping the values under [data-theme='dark'].
-   The accent teal (#157878) is inherited from the old Cayman theme for
-   visual continuity.
+
+   Design language: warm "paper" backgrounds, serif display type for
+   headings, soft rounded shapes — editorial rather than techy. The teal
+   accent is a quieter descendant of the old Cayman theme's #157878.
    ========================================================================== */
 
 :root {
-  --bg: #ffffff;
-  --bg-soft: #f4f6f6;        /* cards, code blocks, chips */
-  --fg: #1b1f23;             /* body text */
-  --fg-muted: #57606a;       /* secondary text, dates */
-  --accent: #157878;         /* links, highlights, timeline dots */
-  --accent-soft: #d7ecec;    /* subtle accent backgrounds */
-  --border: #d8dee4;
-  --shadow: 0 1px 3px rgb(0 0 0 / 0.08);
+  --bg: #faf7f0;             /* warm paper */
+  --bg-soft: #f1ebdf;        /* cards, code blocks, chips */
+  --fg: #2f2b25;             /* warm ink */
+  --fg-muted: #6e6558;
+  --accent: #11706a;         /* warm teal */
+  --accent-soft: #e0efe9;
+  --border: #e0d7c6;
+  --shadow: 0 2px 10px rgb(90 70 40 / 0.08);
+
+  --font-serif: 'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
 [data-theme='dark'] {
-  --bg: #0f1417;
-  --bg-soft: #1a2126;
-  --fg: #e6edf3;
-  --fg-muted: #9baab8;
-  --accent: #3ecfcf;
-  --accent-soft: #123939;
-  --border: #2d3844;
-  --shadow: 0 1px 3px rgb(0 0 0 / 0.4);
+  --bg: #211e19;             /* warm charcoal, not blue-black */
+  --bg-soft: #2b2720;
+  --fg: #ece4d6;
+  --fg-muted: #a89d8c;
+  --accent: #57c7b4;
+  --accent-soft: #1a3630;
+  --border: #3b352a;
+  --shadow: 0 2px 10px rgb(0 0 0 / 0.45);
 }
 
 /* ---- reset-ish ---- */
@@ -47,15 +52,15 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--fg);
-  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: var(--font-sans);
   font-size: 1.0625rem;
-  line-height: 1.65;
+  line-height: 1.7;
 }
 
 img {
   max-width: 100%;
   height: auto;
-  border-radius: 6px;
+  border-radius: 10px;
 }
 
 a {
@@ -64,30 +69,35 @@ a {
 }
 a:hover {
   text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  font-weight: 650;
   line-height: 1.25;
-  margin: 1.6em 0 0.5em;
+  margin: 1.7em 0 0.5em;
+  letter-spacing: 0.01em;
 }
-h1 { font-size: 2rem; margin-top: 0.5em; }
-h2 { font-size: 1.5rem; }
+h1 { font-size: 2.3rem; margin-top: 0.5em; }
+h2 { font-size: 1.55rem; }
 h3 { font-size: 1.2rem; }
 
 code {
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 0.9em;
+  font-size: 0.88em;
   background: var(--bg-soft);
-  padding: 0.15em 0.35em;
-  border-radius: 4px;
+  padding: 0.15em 0.4em;
+  border-radius: 6px;
 }
 
 /* Shiki-highlighted blocks from markdown posts */
 pre {
-  padding: 1rem 1.25rem;
-  border-radius: 8px;
+  padding: 1.1rem 1.3rem;
+  border-radius: 12px;
   overflow-x: auto;
   border: 1px solid var(--border);
+  line-height: 1.55;
 }
 pre code {
   background: none;
@@ -95,18 +105,20 @@ pre code {
 }
 
 blockquote {
-  margin: 1rem 0;
-  padding: 0.25rem 1.25rem;
-  border-left: 4px solid var(--accent);
+  margin: 1.25rem 0;
+  padding: 0.4rem 1.4rem;
+  border-left: 3px solid var(--accent);
   background: var(--bg-soft);
-  border-radius: 0 8px 8px 0;
+  border-radius: 0 12px 12px 0;
   color: var(--fg-muted);
+  font-family: var(--font-serif);
+  font-style: italic;
 }
 
 hr {
   border: none;
   border-top: 1px solid var(--border);
-  margin: 2.5rem 0;
+  margin: 2.75rem 0;
 }
 
 /* ---- page shell ---- */
@@ -126,7 +138,7 @@ main.container {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  background: color-mix(in srgb, var(--bg) 90%, transparent);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border);
 }
@@ -134,15 +146,16 @@ main.container {
 .site-header .inner {
   max-width: 46rem;
   margin: 0 auto;
-  padding: 0.6rem 1.25rem;
+  padding: 0.65rem 1.25rem;
   display: flex;
   align-items: center;
   gap: 1rem;
 }
 
 .site-header .brand {
+  font-family: var(--font-serif);
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: var(--fg);
 }
 .site-header .brand:hover {
@@ -154,7 +167,7 @@ main.container {
   margin-left: auto;
   display: flex;
   align-items: center;
-  gap: 0.9rem;
+  gap: 0.95rem;
 }
 
 .site-header nav a {
@@ -168,36 +181,43 @@ main.container {
 
 /* ---- hero (home page) ---- */
 .hero {
-  padding: 3rem 0 1rem;
+  padding: 3.25rem 0 1rem;
 }
 .hero h1 {
-  margin: 0 0 0.25rem;
+  margin: 0 0 0.3rem;
+  font-size: 2.7rem;
 }
 .hero .tagline {
   color: var(--fg-muted);
-  font-size: 1.15rem;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.2rem;
   margin: 0;
 }
 .hero .links {
   display: flex;
   gap: 0.75rem;
-  margin-top: 1rem;
+  margin-top: 1.35rem;
   flex-wrap: wrap;
 }
 
 /* ---- generic card / list ---- */
 .card {
   border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 1.1rem 1.3rem;
-  margin: 1rem 0;
-  background: var(--bg);
+  border-radius: 14px;
+  padding: 1.15rem 1.4rem;
+  margin: 1.1rem 0;
+  background: color-mix(in srgb, var(--bg-soft) 45%, var(--bg));
   box-shadow: var(--shadow);
 }
 
 .post-list {
   list-style: none;
   padding: 0;
+}
+.post-list a strong {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
 }
 .post-list .meta {
   color: var(--fg-muted);
@@ -209,7 +229,7 @@ main.container {
   background: var(--accent-soft);
   color: var(--accent);
   border-radius: 999px;
-  padding: 0.05rem 0.65rem;
+  padding: 0.08rem 0.7rem;
   font-size: 0.8rem;
   margin-right: 0.35rem;
 }
@@ -219,13 +239,25 @@ main.container {
   background: var(--accent);
   color: var(--bg);
   font-weight: 600;
-  padding: 0.5rem 1.1rem;
-  border-radius: 8px;
+  padding: 0.55rem 1.2rem;
+  border-radius: 999px;
   border: none;
 }
 .button:hover {
   text-decoration: none;
   filter: brightness(1.08);
+}
+
+/* ---- blog article body: serif, generous leading ---- */
+article p,
+article li {
+  font-family: var(--font-serif);
+  font-size: 1.11rem;
+  line-height: 1.8;
+}
+article .meta,
+article .chip {
+  font-family: var(--font-sans);
 }
 
 /* ---- career timeline ---- */
@@ -248,7 +280,7 @@ main.container {
 .timeline > li {
   position: relative;
   padding-left: 2.2rem;
-  margin-bottom: 1.4rem;
+  margin-bottom: 1.5rem;
 }
 .timeline > li::before {
   /* the dot */
@@ -259,11 +291,26 @@ main.container {
   width: 1rem;
   height: 1rem;
   border-radius: 50%;
-  background: var(--accent);
+  background: var(--fg-muted);
   border: 3px solid var(--bg);
 }
-.timeline > li.edu::before {
-  background: var(--fg-muted);
+.timeline > li.work::before {
+  background: var(--accent);
+}
+.timeline > li.current::before {
+  /* the "you are here" glow */
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 30%, transparent);
+}
+.present-badge {
+  background: var(--accent);
+  color: var(--bg);
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 0.1rem 0.6rem;
 }
 .timeline details summary {
   cursor: pointer;
@@ -284,11 +331,45 @@ main.container {
   font-size: 0.9rem;
 }
 .timeline .role {
+  font-family: var(--font-serif);
   font-weight: 650;
+  font-size: 1.05rem;
 }
 .timeline ul {
   margin: 0.5rem 0 0;
   padding-left: 1.2rem;
+}
+
+/* ---- CV page sections ---- */
+.cv-toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.25rem 0 0.5rem;
+}
+.cv-toc a {
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  color: var(--fg-muted);
+  border-radius: 999px;
+  padding: 0.25rem 0.9rem;
+  font-size: 0.9rem;
+}
+.cv-toc a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  text-decoration: none;
+}
+.cv-section {
+  margin-top: 2.75rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border);
+}
+.cv-section > h2 {
+  margin-top: 1rem;
+}
+.cv-section > h2 a {
+  color: inherit;
 }
 
 /* ---- skills radar ---- */
@@ -315,19 +396,22 @@ main.container {
 
 /* ---- kudos ---- */
 .kudos figure {
-  margin: 1.25rem 0;
-  padding: 1rem 1.25rem;
-  border-left: 4px solid var(--accent);
+  margin: 1.35rem 0;
+  padding: 1.1rem 1.4rem;
+  border-left: 3px solid var(--accent);
   background: var(--bg-soft);
-  border-radius: 0 8px 8px 0;
+  border-radius: 0 14px 14px 0;
 }
 .kudos blockquote {
   all: unset;
   display: block;
+  font-family: var(--font-serif);
   font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.7;
 }
 .kudos figcaption {
-  margin-top: 0.5rem;
+  margin-top: 0.6rem;
   color: var(--fg-muted);
   font-size: 0.9rem;
 }
@@ -352,7 +436,7 @@ main.container {
 .theme-toggle {
   background: none;
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 999px;
   color: var(--fg-muted);
   cursor: pointer;
   padding: 0.25rem 0.5rem;

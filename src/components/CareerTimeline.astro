@@ -14,10 +14,14 @@ const entries = timelineEntries();
 
 <ol class="timeline">
   {entries.map((e) => (
-    <li class={e.kind === 'work' ? 'work' : 'edu'}>
+    <li class:list={[e.kind === 'work' ? 'work' : 'edu', { current: e.end === null }]}>
       <details open={expanded || undefined}>
         <summary>
-          <span class="when">{formatYm(e.start)} – {formatYm(e.end)}</span><br />
+          <span class="when">
+            {formatYm(e.start)} – {e.end === null
+              ? <strong class="present-badge">Present</strong>
+              : formatYm(e.end)}
+          </span><br />
           <span class="role">{e.title}</span> · {e.place}
         </summary>
         {e.summary && <p>{e.summary}</p>}

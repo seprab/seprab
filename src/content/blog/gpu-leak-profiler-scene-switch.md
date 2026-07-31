@@ -3,9 +3,8 @@ title: Chasing a GPU memory leak in the Profiler
 description: >-
   A GPU memory leak that only happened when switching scenes with the
   Profiler attached — and what it taught me about owning a fix end to end.
-pubDate: 2026-07-31
+pubDate: 2026-03-24
 tags: [unity, profiling, performance, cpp]
-draft: true
 ---
 
 A customer reported GPU memory climbing steadily during play sessions, but only

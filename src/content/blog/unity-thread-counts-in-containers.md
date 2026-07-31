@@ -3,9 +3,8 @@ title: Unity in containers, and threads that don't fit
 description: >-
   Why Unity's worker-thread assumptions misbehave inside containers and CI,
   and the engine changes that make thread counts configurable.
-pubDate: 2026-07-31
+pubDate: 2024-12-12
 tags: [unity, docker, ci, build-pipeline]
-draft: true
 ---
 
 Ever since my [first experiments running Unity in Docker](/blog/linux-docker-unity-android/),

@@ -14,13 +14,30 @@
   link: https://www.mobygames.com/game/184776/v-rising/credits/windows/
   order: 2
 
+- title: top-recode — rebuilding a 2007 MMORPG in modern C++
+  description: >-
+    My ongoing recode of Tales of Pirates (TOP/PKO): "heart", a from-scratch,
+    Lua-free, cross-platform C++20 rebuild of the game server, and "viewer", a
+    raylib-based 3D viewer that renders the original converted game assets —
+    no SQL Server, no Windows-only toolchain required.
+  order: 3
+
+- title: CardoBlast — an RPG for the Playdate console
+  description: >-
+    A top-down survival RPG in C++ for the Playdate handheld: a magician
+    fighting monster waves across procedurally generated arenas, with RPG
+    progression, multiple magic abilities, a slow-time mechanic, and a
+    save system. Built as a C++ learning exercise on real constrained
+    hardware.
+  order: 4
+
 - title: ML-Trained Tanks
   description: >-
     Machine-learning-powered AI simulating a tank battle — final project of
     the Ironhack data analytics bootcamp.
   image: https://i3.ytimg.com/vi/fmvXJ-wFV9s/maxresdefault.jpg
   video: https://www.youtube.com/watch?v=fmvXJ-wFV9s
-  order: 3
+  order: 5
 
 - title: TractorSim®
   description: >-

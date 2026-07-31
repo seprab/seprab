@@ -3,9 +3,8 @@ title: Teaching the Asset Database to search by GUID
 description: >-
   A small engine contribution born from support tickets: searching assets by
   GUID, shipped in Unity 6000.2.
-pubDate: 2026-07-31
+pubDate: 2025-06-19
 tags: [unity, asset-database, editor, tooling]
-draft: true
 ---
 
 If you've ever debugged a broken reference in a Unity project, you know the
