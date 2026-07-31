@@ -11,6 +11,7 @@ const date = post.data.pubDate.toISOString().slice(0, 10);
 
 <li class="card">
   <a href={`/blog/${post.id}/`}><strong>{post.data.title}</strong></a>
+  {post.data.draft && <span class="chip">draft — not published</span>}
   <div class="meta">
     <time datetime={date}>{date}</time>
   </div>
