@@ -23,15 +23,15 @@
 }
 
 [data-theme='dark'] {
-  /* "Reading by candlelight": deep espresso browns with a copper accent —
-     warm and calm rather than techy. */
-  --bg: #261f17;
-  --bg-soft: #33291d;
-  --fg: #f2e9d8;
-  --fg-muted: #b5a58d;
-  --accent: #dda15e;
-  --accent-soft: #3e3120;
-  --border: #473a28;
+  /* "Evening garden": deep pine-green ink with a spring-mint accent —
+     fresh and calm, cohesive with the light theme's teal. */
+  --bg: #16211d;
+  --bg-soft: #1f2d27;
+  --fg: #e9f0ea;
+  --fg-muted: #99ab9f;
+  --accent: #6fd3ac;
+  --accent-soft: #1d3a30;
+  --border: #32443b;
   --shadow: 0 2px 10px rgb(0 0 0 / 0.45);
 }
 
