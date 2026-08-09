@@ -10,17 +10,12 @@
 
 basics:
   name: Sergio Prada
-  headline: Senior Software Engineer @ Unity Technologies — Engine Support
+  headline: Senior Software Engineer @ Unity Technologies
   location: Montreal, Canada
   email: sergioeprada@hotmail.com
   summary: >-
-    Senior Software Engineer with 9+ years building and supporting real-time 3D
-    software: game engine internals, simulators, VR, and multi-platform
-    applications. Deep expertise in Unity engine architecture, C++ and C#,
-    performance profiling and optimization, memory management, and build
-    pipelines / CI-CD. Trusted technical escalation point for Unity's largest
-    game studios and enterprise customers worldwide, with fixes contributed
-    directly to the Unity engine source and credits in shipped AAA titles.
+    Senior Software Engineer with 9+ years of experience building, optimizing, and supporting real-time 3D software across game engine internals, simulators, VR, and multi-platform applications. Deep expertise in Unity engine architecture, C++ and C#, performance profiling and optimization, memory management, and build systems and CI/CD. 
+    Trusted to solve complex technical challenges for Unity's largest game studios and enterprise customers worldwide, from engine-level debugging and performance issues to production-critical escalations. Contributions have shipped directly in the Unity engine and in shipped AAA titles.
   links:
     - label: GitHub
       url: https://github.com/seprab
@@ -62,7 +57,7 @@ experience:
         studio's launch-blocking crash in a containerized build environment,
         days before their soft launch.
       - >-
-        Selected as Named Support Engineer for two of the world's
+        Selected as Dedicated Support Engineer for two of the world's
         top-grossing mobile game studios, serving as the technical bridge
         between customers and engine R&D.
       - >-
@@ -197,10 +192,10 @@ skills:
   - { name: Performance profiling & optimization, level: 5, category: systems }
   - { name: Memory management & crash analysis, level: 4, category: systems }
   - { name: Build pipeline & IL2CPP, level: 4, category: systems }
-  - { name: Docker & containerized builds, level: 4, category: tools }
-  - { name: CI/CD & automation, level: 4, category: tools }
+  - { name: Docker & containerized builds, level: 3, category: tools }
+  - { name: CI/CD & automation, level: 3, category: tools }
   - { name: Git & code review, level: 4, category: tools }
-  - { name: VR/XR development, level: 4, category: engine }
+  - { name: VR/XR development, level: 3, category: engine }
   - { name: Computer graphics (OpenGL), level: 3, category: engine }
   - { name: Data analytics (Python, SQL, Tableau), level: 3, category: data }
 
