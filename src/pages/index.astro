@@ -72,7 +72,7 @@ const schema = {
 
   <section>
     <h2>Career at a Glance</h2>
-    <p>{cv.basics.summary}</p>
+    {cv.basics.summary.split('\n').map((para) => <p>{para}</p>)}
     <MiniTimeline />
     <div class="links">
       <a class="button" href="/cv/">View the full CV →</a>

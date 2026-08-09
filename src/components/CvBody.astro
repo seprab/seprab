@@ -10,7 +10,7 @@ import { cv, formatYm } from '../lib/data';
     <strong>{cv.basics.headline}</strong><br />
     {cv.basics.location} · <a href={`mailto:${cv.basics.email}`}>{cv.basics.email}</a>
   </p>
-  <p>{cv.basics.summary}</p>
+  {cv.basics.summary.split('\n').map((para) => <p>{para}</p>)}
   <p>
     {cv.basics.links.map((l, i) => (
       <>
