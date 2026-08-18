@@ -1,5 +1,16 @@
 # Entries for the /projects/ page, ordered by `order` (ascending).
 
+- title: Ponderly — a voice-native journaling app
+  description: >-
+    A journaling web app I designed and built end to end: you speak your day and
+    it transcribes on-device or in the cloud (Whisper), then reflects back tags,
+    a short summary, a sentiment reading, and a gentle follow-up question — plus
+    an "ask your journal" Q&A over past entries. Installable PWA built with React,
+    TypeScript, and Cloudflare Workers/D1, with a companion browser extension.
+  image: /images/ponderly.png
+  link: https://ponderly.co/
+  order: 0
+
 - title: 'Cities: Skylines II — Engine & Console Support (credited)'
   description: >-
     Publicly credited in the shipping title for Unity engine and console
