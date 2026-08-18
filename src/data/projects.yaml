@@ -31,6 +31,7 @@
     Lua-free, cross-platform C++20 rebuild of the game server, and "viewer", a
     raylib-based 3D viewer that renders the original converted game assets —
     no SQL Server, no Windows-only toolchain required.
+  image: /images/top-recode.gif
   order: 3
 
 - title: CardoBlast — an RPG for the Playdate console
