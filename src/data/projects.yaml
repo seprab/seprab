@@ -40,6 +40,7 @@
     progression, multiple magic abilities, a slow-time mechanic, and a
     save system. Built as a C++ learning exercise on real constrained
     hardware.
+  image: /images/cardoblast.gif
   order: 4
 
 - title: ML-Trained Tanks
