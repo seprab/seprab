@@ -322,11 +322,15 @@ main.container {
   -webkit-line-clamp: 5;
 }
 .projects-grid .cover {
-  /* full-bleed strip across the card top (negates the card padding) */
+  /* full-bleed banner across the card top (negates the card padding).
+     A fixed aspect-ratio gives the image a definite height so `object-fit`
+     actually crops — a percentage height doesn't resolve against the card's
+     aspect-ratio height, which left images uncropped and pinned to the top. */
   width: calc(100% + 2.8rem);
   margin: -1.15rem -1.4rem 0.85rem;
-  height: 38%;
+  aspect-ratio: 8 / 3;
   object-fit: cover;
+  object-position: center;
   border-radius: 14px 14px 0 0;
   flex: 0 0 auto;
 }
