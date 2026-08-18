@@ -327,6 +327,8 @@ main.container {
      actually crops — a percentage height doesn't resolve against the card's
      aspect-ratio height, which left images uncropped and pinned to the top. */
   width: calc(100% + 2.8rem);
+  max-width: none; /* override the global img{max-width:100%}, which otherwise
+                      clamps the width and pins the image to the left */
   margin: -1.15rem -1.4rem 0.85rem;
   aspect-ratio: 8 / 3;
   object-fit: cover;
