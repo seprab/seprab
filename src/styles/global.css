@@ -272,21 +272,13 @@ main.container {
   display: flex;
   flex-direction: column;
   margin: 0;
-  aspect-ratio: 1 / 1; /* squared cards */
-  overflow: hidden;
-}
-@media (max-width: 480px) {
-  .post-grid .card {
-    aspect-ratio: auto; /* let them breathe on phones */
-  }
+  /* Height grows with content; cards in the same grid row still stretch to a
+     shared height (align-items: stretch), so rows stay tidy without clipping. */
+  overflow: hidden; /* clip the cover image to the card's rounded corners */
 }
 .post-grid a strong {
   font-family: var(--font-serif);
   font-size: 1.12rem;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 .post-grid .meta {
   color: var(--fg-muted);
@@ -296,30 +288,25 @@ main.container {
 .post-grid .desc {
   margin: 0;
   font-size: 0.95rem;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 .post-grid .tags {
   margin-top: auto; /* pin tags to the card bottom */
   padding-top: 0.6rem;
-  white-space: nowrap;
-  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap; /* let tags wrap onto a new line instead of clipping */
+  gap: 0.35rem;
+}
+.post-grid .tags .chip {
+  margin-right: 0; /* spacing handled by the flex gap */
 }
 
 /* ---- projects grid (same squared cards, plus cover images) ---- */
 .projects-grid .title {
   font-family: var(--font-serif);
   font-size: 1.12rem;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 .projects-grid .desc {
   margin-top: 0.4rem;
-  -webkit-line-clamp: 5;
 }
 .projects-grid .cover {
   /* full-bleed banner across the card top (negates the card padding).
@@ -336,10 +323,6 @@ main.container {
   border-radius: 14px 14px 0 0;
   flex: 0 0 auto;
 }
-.projects-grid .has-cover .desc {
-  -webkit-line-clamp: 3;
-}
-
 /* ---- CV tabs ---- */
 .tabs {
   display: flex;
