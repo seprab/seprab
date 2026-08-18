@@ -20,6 +20,13 @@
     text-decoration: none;
   }
 
+  /* CV links stay coloured and underlined in the PDF so they read as
+     clickable — the generated PDF keeps them as live hyperlinks. */
+  .cv-doc a {
+    color: var(--accent);
+    text-decoration: underline;
+  }
+
   .container {
     max-width: none;
     padding: 0;

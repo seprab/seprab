@@ -4,6 +4,7 @@
 import { cv, formatYm } from '../lib/data';
 ---
 
+<div class="cv-doc">
 <section class="cv-entry">
   <h2>{cv.basics.name}</h2>
   <p>
@@ -71,3 +72,4 @@ import { cv, formatYm } from '../lib/data';
     {cv.languages.map((l) => <li>{l.name} — {l.level}</li>)}
   </ul>
 </section>
+</div>

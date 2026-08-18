@@ -18,6 +18,8 @@ basics:
 
     Trusted to solve complex technical challenges for Unity's largest game studios and enterprise customers worldwide, from engine-level debugging and performance issues to production-critical escalations. Contributions have shipped directly in the Unity engine and in shipped AAA titles.
   links:
+    - label: Website
+      url: https://seprab.com
     - label: GitHub
       url: https://github.com/seprab
     - label: LinkedIn
