@@ -45,9 +45,10 @@ experience:
         feeding verified fixes back into Unity releases.
       - >-
         Contribute C++ and C# fixes directly to the Unity engine source,
-        including a GPU memory-leak fix in the Profiler, Asset Database
-        GUID-search tooling, and configurable worker-thread counts for
-        containerized CI environments.
+        including a GPU memory-leak fix in the Profiler, a thread-safety
+        overhaul of the TextCore font engine, Asset Database GUID-search
+        tooling, and configurable worker-thread counts for containerized CI
+        environments.
       - >-
         Root-caused an eight-year-old engine race condition (ARM instruction
         reordering) that froze roughly 1.2 million sessions per month for a
