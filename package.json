@@ -13,7 +13,7 @@
   "dependencies": {
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.3",
-    "astro": "^7.1.6"
+    "astro": "^7.3.3"
   },
   "devDependencies": {
     "@rollup/plugin-yaml": "^5.0.0",
